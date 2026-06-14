@@ -7,7 +7,7 @@ import ServicePage from './pages/ServicePage'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/golshei3">
       <LeadBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
