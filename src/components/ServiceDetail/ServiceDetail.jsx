@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import './ServiceDetail.css'
 
 const CheckIcon = () => (
@@ -26,10 +25,10 @@ export default function ServiceDetail({ service }) {
   return (
     <section className="block service-detail">
       <div className="container">
-        <Link to="/#services" className="sd-back">
+        <a href={`${import.meta.env.BASE_URL}#services`} className="sd-back">
           <ArrowIcon />
           חזרה לכל השירותים
-        </Link>
+        </a>
 
         <div className="sd-grid">
           <div className="sd-body reveal">
@@ -78,7 +77,7 @@ export default function ServiceDetail({ service }) {
 
           <div className="sd-media reveal">
             {service.image
-              ? <img src={service.image} alt={service.title} className="sd-photo" />
+              ? <img src={`${import.meta.env.BASE_URL}${service.image.replace(/^\.?\//, '')}`} alt={service.title} className="sd-photo" />
               : <div className="sd-photo sd-photo--placeholder"><BuildingIcon /></div>
             }
           </div>
