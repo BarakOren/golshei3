@@ -37,7 +37,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'ליווי מול הרשויות', rest: '— אתם לא לבד בתהליך מול העירייה.' },
     ],
-    image: '/assets/services/danger-notice.jpg',
+    image: './assets/services/danger-notice.jpg',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L3 7v6c0 5 3.5 9 9 11 5.5-2 9-6 9-11V7l-9-5z"/>
@@ -81,7 +81,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/building-renovation.JPG',
+    image: './assets/services/building-renovation.JPG',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -124,7 +124,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/stone-fixing.jpg',
+    image: './assets/services/stone-fixing.jpg',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 21V8l8-5 8 5v13"/>
@@ -169,7 +169,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/stone-replacement.JPG',
+    image: './assets/services/stone-replacement.JPG',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -214,7 +214,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/glass-replacement.png',
+    image: './assets/services/glass-replacement.png',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -257,7 +257,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/aluminum-work.jpg',
+    image: './assets/services/aluminum-work.jpg',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/>
@@ -300,7 +300,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/leak-detection.jpg',
+    image: './assets/services/leak-detection.jpg',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.5s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>
@@ -342,7 +342,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/roof-wall-sealing.jpg',
+    image: './assets/services/roof-wall-sealing.jpg',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 12h18M3 6h18M3 18h18"/>
@@ -385,7 +385,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/spot-sealing.JPG',
+    image: './assets/services/spot-sealing.JPG',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9"/>
@@ -428,7 +428,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/plaster-paint.png',
+    image: './assets/services/plaster-paint.png',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 16l4-4 4 4 6-6 4 4"/>
@@ -471,7 +471,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/wall-painting-height.JPG',
+    image: './assets/services/wall-painting-height.JPG',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0z"/>
@@ -514,7 +514,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים — מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי', rest: '— מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: '/assets/services/window-cleaning.png',
+    image: './assets/services/window-cleaning.png',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="3" width="16" height="18" rx="2"/>

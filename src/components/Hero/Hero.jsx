@@ -33,9 +33,9 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/assets/hero-worker.jpg"
+        poster="./assets/hero-worker.jpg"
       >
-        <source src="/assets/hero-video.mp4" type="video/mp4" />
+        <source src="./assets/hero-video.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" />
 

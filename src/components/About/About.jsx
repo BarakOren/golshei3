@@ -30,7 +30,7 @@ export default function About() {
           </div>
 
           <div className="about-image reveal">
-            <img className="about-worker" src="/assets/about-worker-v2.png" alt="צוות גולשי המתכת — עובד עם קסדה" />
+            <img className="about-worker" src="./assets/about-worker-v2.png" alt="צוות גולשי המתכת — עובד עם קסדה" />
           </div>
         </div>
       </div>

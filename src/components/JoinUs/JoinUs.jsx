@@ -30,7 +30,7 @@ export default function JoinUs() {
       <div className="container">
         <div className="join-grid">
           <div className="join-side join-side-image reveal">
-            <img className="join-worker" src="/assets/about-worker.png" alt="צוות גולשי המתכת" />
+            <img className="join-worker" src="./assets/about-worker.png" alt="צוות גולשי המתכת" />
           </div>
 
           <div className="join-side join-side-content reveal">
