@@ -7,6 +7,8 @@ import Reviews from '../components/Reviews/Reviews'
 import JoinUs from '../components/JoinUs/JoinUs'
 import About from '../components/About/About'
 import Contact from '../components/Contact/Contact'
+import GallerySlider from "../components/SliderGallery/SilderGallery"
+
 
 export default function HomePage() {
   useReveal()
@@ -20,6 +22,7 @@ export default function HomePage() {
       <Hero />
       <Services />
       <WhyUs />
+      <GallerySlider />
       <Reviews />
       <JoinUs />
       <About />

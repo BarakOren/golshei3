@@ -1,6 +1,5 @@
 section.block.join {
-  padding-top: 60px;
-  padding-bottom: 0;
+  padding: 68px 24px;
 }
 .join {
   background:
@@ -14,7 +13,7 @@ section.block.join {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: 48px;
-  align-items: end;
+  align-items: center;
 }
 .join-side-image {
   display: flex;
@@ -149,9 +148,8 @@ section.block.join {
 .join-worker {
   display: block;
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   height: auto;
-  margin-bottom: -4px;
   filter: drop-shadow(0 -10px 30px rgba(27, 42, 74, 0.18));
 }
 @media (max-width: 900px) {
@@ -161,5 +159,5 @@ section.block.join {
   .join-statement { text-align: center; }
   .join-worker { max-width: 360px; margin: 0 auto -4px; }
   .form-row { grid-template-columns: 1fr; }
-  section.block.join { padding-bottom: 0; }
+  section.block.join { }
 }
