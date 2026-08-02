@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './JoinUs.css'
 
+const WHATSAPP_NUMBER = '972542692087'
+
 const ShieldIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -13,15 +15,30 @@ const ArrowIcon = () => (
 )
 
 export default function JoinUs() {
+  const [form, setForm] = useState({ name: '', phone: '', message: '' })
   const [success, setSuccess] = useState(false)
 
-  function handleSubmit(e) {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const name = e.target.elements['f-name'].value.trim()
-    const phone = e.target.elements['f-phone'].value.trim()
-    if (!name || !phone) return
+    if (!form.name.trim() || !form.phone.trim()) return
+
+    const text = `שלום גולשי המתכת! 
+
+שמי הוא ${form.name}
+מספר הפלאפון שלי ${form.phone}
+${form.message ? `הודעה: ${form.message}` : ''}
+
+`
+
+    const encoded = encodeURIComponent(text)
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
+
+    setForm({ name: '', phone: '', message: '' })
     setSuccess(true)
-    e.target.reset()
     setTimeout(() => setSuccess(false), 6000)
   }
 
@@ -46,17 +63,39 @@ export default function JoinUs() {
               <div className="form-row">
                 <div className="field">
                   <label htmlFor="f-name">שם מלא</label>
-                  <input id="f-name" name="f-name" type="text" placeholder="השם שלכם" required />
+                  <input
+                    id="f-name"
+                    name="name"
+                    type="text"
+                    placeholder="השם שלכם"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="field">
                   <label htmlFor="f-phone">טלפון</label>
-                  <input id="f-phone" name="f-phone" type="tel" placeholder="050-0000000" required />
+                  <input
+                    id="f-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="050-0000000"
+                    value={form.phone}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
               </div>
 
               <div className="field field-full">
                 <label htmlFor="f-msg">פרטים נוספים (אופציונלי)</label>
-                <textarea id="f-msg" name="message" placeholder="ספרו לנו בקצרה על הפרויקט, כתובת המבנה, גובה משוער וכו'" />
+                <textarea
+                  id="f-msg"
+                  name="message"
+                  placeholder="ספרו לנו בקצרה על הפרויקט, כתובת המבנה, גובה משוער וכו'"
+                  value={form.message}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="form-actions">
@@ -72,7 +111,7 @@ export default function JoinUs() {
 
               {success && (
                 <div className="form-success show">
-                  ✓ תודה! הפרטים נשלחו בהצלחה — נחזור אליכם בהקדם.
+                  ✓ תודה! הפרטים נשלחו — נחזור אליכם בהקדם.
                 </div>
               )}
             </form>

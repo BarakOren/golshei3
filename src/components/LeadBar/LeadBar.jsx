@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './LeadBar.css'
 
+const WHATSAPP_NUMBER = '972542692087'
+
 const LogoIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2v20M5 8l7-6 7 6M7 14h10M9 20h6"/>
@@ -19,15 +21,30 @@ const ArrowIcon = () => (
 )
 
 export default function LeadBar() {
+  const [form, setForm] = useState({ name: '', phone: '', email: '' })
   const [success, setSuccess] = useState(false)
 
-  function handleSubmit(e) {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const name = e.target.elements.name.value.trim()
-    const phone = e.target.elements.phone.value.trim()
-    if (!name || !phone) return
+    if (!form.name.trim() || !form.phone.trim()) return
+
+    const text = `שלום גולשי המתכת!
+
+שמי הוא ${form.name}
+מספר הפלאפון שלי ${form.phone}
+${form.email ? `אימייל: ${form.email}` : ''}
+
+`
+
+    const encoded = encodeURIComponent(text)
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
+
+    setForm({ name: '', phone: '', email: '' })
     setSuccess(true)
-    e.target.reset()
     setTimeout(() => setSuccess(false), 6000)
   }
 
@@ -47,9 +64,32 @@ export default function LeadBar() {
             רוצים <span className="accent-text">לקבל הצעת מחיר</span> / להתייעץ / לשאול שאלה?
           </div>
           <form className="lead-form" onSubmit={handleSubmit} noValidate>
-            <input className="lead-input" name="name" type="text" placeholder="שם מלא" required />
-            <input className="lead-input" name="phone" type="tel" placeholder="טלפון" required />
-            <input className="lead-input" name="email" type="email" placeholder="אימייל" />
+            <input
+              className="lead-input"
+              name="name"
+              type="text"
+              placeholder="שם מלא"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="lead-input"
+              name="phone"
+              type="tel"
+              placeholder="טלפון"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="lead-input"
+              name="email"
+              type="email"
+              placeholder="אימייל"
+              value={form.email}
+              onChange={handleChange}
+            />
             <button type="submit" className="lead-submit">
               תחזרו אליי
               <ArrowIcon />

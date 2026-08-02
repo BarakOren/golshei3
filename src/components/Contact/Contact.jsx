@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './Contact.css'
 
+const WHATSAPP_NUMBER = '972542692087'
+
 const PhoneIcon = ({ size = 2.4 }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={size} strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
@@ -13,15 +15,30 @@ const ArrowIcon = () => (
 )
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', phone: '', email: '' })
   const [success, setSuccess] = useState(false)
 
-  function handleSubmit(e) {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const name = document.getElementById('ql-name').value.trim()
-    const phone = document.getElementById('ql-phone').value.trim()
-    if (!name || !phone) return
+    if (!form.name.trim() || !form.phone.trim()) return
+
+    const text = `שלום גולשי המתכת!
+
+שמי הוא ${form.name}
+מספר הפלאפון שלי ${form.phone}
+${form.email ? `אימייל: ${form.email}` : ''}
+
+`
+
+    const encoded = encodeURIComponent(text)
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
+
+    setForm({ name: '', phone: '', email: '' })
     setSuccess(true)
-    e.target.reset()
     setTimeout(() => setSuccess(false), 6000)
   }
 
@@ -56,9 +73,32 @@ export default function Contact() {
 
           <form className="quick-lead reveal" onSubmit={handleSubmit} noValidate>
             <div className="quick-lead-title">או השאירו פרטים ונחזור אליכם</div>
-            <input className="quick-lead-input" id="ql-name" type="text" placeholder="שם מלא" required />
-            <input className="quick-lead-input" id="ql-phone" type="tel" placeholder="טלפון" required />
-            <input className="quick-lead-input" id="ql-email" type="email" placeholder="אימייל" />
+            <input
+              className="quick-lead-input"
+              name="name"
+              type="text"
+              placeholder="שם מלא"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="quick-lead-input"
+              name="phone"
+              type="tel"
+              placeholder="טלפון"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="quick-lead-input"
+              name="email"
+              type="email"
+              placeholder="אימייל"
+              value={form.email}
+              onChange={handleChange}
+            />
             <button type="submit" className="quick-lead-submit">
               תשלחו לנו פרטים
               <ArrowIcon />
