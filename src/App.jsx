@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer'
 import StickyButtons from './components/StickyButtons/StickyButtons'
 import HomePage from './pages/HomePage'
 import ServicePage from './pages/ServicePage'
+import NotFound from './components/NotFound/NotFound'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/service/:id" element={<ServicePage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <StickyButtons />
