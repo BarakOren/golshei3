@@ -8,7 +8,7 @@ import NotFound from './components/NotFound/NotFound'
 
 export default function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <LeadBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
