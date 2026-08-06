@@ -1,4 +1,4 @@
-.lead-bar {
+/* .lead-bar {
   position: relative;
   z-index: 100;
   background:
@@ -194,4 +194,4 @@
 }
 @media (max-width: 420px) {
   .lead-form { grid-template-columns: 1fr; }
-}
+} */

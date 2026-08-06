@@ -7,7 +7,7 @@ const images = Object.values(
 
   return (
     <div>
-      <section className="gallery-page-section">
+      <section className="gallery-page-section" id="gallery">
         <span className="section-label">העבודות שלנו</span>
         <h1 className="section-title">גלריית פרויקטים</h1>
         <div className="section-divider" />

@@ -1,0 +1,91 @@
+.lead-bar {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.10), transparent 55%),
+    radial-gradient(ellipse at 80% 50%, rgba(0,0,0,0.12), transparent 60%),
+    linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 50%, var(--accent-deep) 100%);
+  border-bottom: 3px solid #A78BFA;
+}
+
+.lead-bar-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 24px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.lead-logo .logo-mark {
+  width: 78px;
+  height: 88px;
+  border-radius: none;
+  background: none;
+  border: none;
+  display: grid;
+  place-items: center;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+.header-nav-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.header-nav-link:hover {
+  color: var(--gold);
+}
+
+.lead-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.lead-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lead-logo-text strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.lead-logo-text small {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+/* MOBILE — מסתיר לינקים, ממרכז לוגו */
+@media (max-width: 768px) {
+  .lead-bar-inner {
+    justify-content: center;
+  }
+
+  .header-nav {
+    display: none;
+  }
+}

@@ -36,7 +36,7 @@ export default function GallerySlider() {
   };
 
   return (
-    <section className="slider-section">
+    <section className="slider-section" id="gallery">
       <h2 className="slider-title">קצת מהביצועים שלנו</h2>
 
       <div className="slider-wrapper">

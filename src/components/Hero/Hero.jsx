@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-eyebrow">
           <span className="dot" />
-          זמינים לקריאות בכל גוש דן · 24/7
+          זמינים לקריאות בכל גוש דן
         </div>
         <h1>
           פתרון מקצועי<br />

@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LeadBar from './components/LeadBar/LeadBar'
+// import LeadBar from './components/LeadBar/LeadBar'
 import Footer from './components/Footer/Footer'
 import StickyButtons from './components/StickyButtons/StickyButtons'
 import HomePage from './pages/HomePage'
 import ServicePage from './pages/ServicePage'
 import NotFound from './components/NotFound/NotFound'
+import Header from './components/Header/Header'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <LeadBar />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/service/:id" element={<ServicePage />} />
