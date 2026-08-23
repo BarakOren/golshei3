@@ -8,7 +8,7 @@ import JoinUs from '../components/JoinUs/JoinUs'
 import About from '../components/About/About'
 import Contact from '../components/Contact/Contact'
 import GallerySlider from "../components/SliderGallery/SilderGallery"
-
+import SEO from '../components/SEO'
 
 export default function HomePage() {
   useReveal()
@@ -19,6 +19,10 @@ export default function HomePage() {
 
   return (
     <>
+    <SEO
+  description="גולשי המתכת — מומחים לעבודה בגובה וסנפלינג בגוש דן. שיפוצים, תיקונים, צביעה ואיטום חזיתות בניינים. התקשרו עכשיו!"
+  path="/"
+/>
       <Hero />
       <Services />
       <WhyUs />

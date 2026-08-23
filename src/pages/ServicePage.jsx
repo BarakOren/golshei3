@@ -4,6 +4,7 @@ import { services } from '../data/services'
 import { useReveal } from '../hooks/useReveal'
 import ServiceDetail from '../components/ServiceDetail/ServiceDetail'
 import Contact from '../components/Contact/Contact'
+import SEO from '../components/SEO'
 
 export default function ServicePage() {
   const { id } = useParams()
@@ -19,6 +20,11 @@ export default function ServicePage() {
 
   return (
     <>
+    <SEO
+      title={service.seoTitle}
+      description={service.seoDescription}
+      path={`/services/${service.id}`}
+    />
       <ServiceDetail service={service} />
       <Contact />
     </>
