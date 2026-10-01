@@ -1,10 +1,10 @@
 import './WhyUs.css'
 
 const items = [
-  { img: './assets/icon-man.png', alt: 'עובד מוסמך', label: 'צוות מוסמך ומנוסה' },
-  { img: './assets/icon-helmet.png', alt: 'קסדת מגן', label: 'ציוד מתקדם ובטיחותי' },
-  { img: './assets/icon-shekel.png', alt: 'שקל, שקיפות מחירים', label: 'מחירים הוגנים ושקיפות מלאה' },
-  { img: './assets/icon-clock.png', alt: 'שעון, זמינות', label: 'זמינות גבוהה בכל גוש דן' },
+  { img: '/assets/icon-man.webp', alt: 'עובד מוסמך', label: 'צוות מוסמך ומנוסה' },
+  { img: '/assets/icon-helmet.webp', alt: 'קסדת מגן', label: 'ציוד מתקדם ובטיחותי' },
+  { img: '/assets/icon-shekel.webp', alt: 'שקל, שקיפות מחירים', label: 'מחירים הוגנים ושקיפות מלאה' },
+  { img: '/assets/icon-clock.webp', alt: 'שעון, זמינות', label: 'זמינות גבוהה בכל גוש דן' },
 ]
 
 export default function WhyUs() {
@@ -19,7 +19,7 @@ export default function WhyUs() {
         <div className="why-grid">
           {items.map((item) => (
             <div className="why-item reveal" key={item.label}>
-              <img className="why-icon-img" src={item.img} alt={item.alt} />
+              <img className="why-icon-img" src={item.img} alt={item.alt} width="640" height="640" loading="lazy" decoding="async" />
               <div className="why-pill">{item.label}</div>
             </div>
           ))}

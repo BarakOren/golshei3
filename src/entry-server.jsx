@@ -4,8 +4,24 @@ import { StaticRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 import { services } from './data/services'
+import { cityList } from './data/cityIndex'
+import { primeCityContent } from './data/cityContent'
+import { LEGAL } from './site'
 
-export const routes = ['/', '/services', ...services.map((s) => `/services/${s.id}`)]
+// The prerender has every city's text up front; the browser loads one city at a time.
+const cityFiles = import.meta.glob('./data/cities/*.js', { eager: true, import: 'default' })
+const cityContent = Object.fromEntries(Object.values(cityFiles).map((c) => [c.id, c]))
+primeCityContent(cityContent)
+
+export const routes = [
+  '/',
+  '/services',
+  ...services.map((s) => `/services/${s.id}`),
+  '/height-work',
+  ...cityList.filter((c) => cityContent[c.id]).map((c) => `/height-work/${c.id}`),
+  LEGAL.privacy,
+  LEGAL.accessibility,
+]
 
 export function render(url) {
   return renderToString(

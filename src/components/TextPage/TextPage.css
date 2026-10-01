@@ -1,0 +1,38 @@
+.text-page {
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(232,148,58,0.08), transparent 55%),
+    linear-gradient(165deg, var(--bg-deep) 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+  padding-top: 54px;
+}
+.text-page-body { max-width: 820px; margin: 0 auto; }
+.text-page-body h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(32px, 4.4vw, 46px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.text-page-body .text-page-updated { font-size: 15px; color: var(--text-dim); margin-bottom: 32px; }
+.text-page-body h2 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 38px 0 12px;
+}
+.text-page-body p,
+.text-page-body li { font-size: 17px; line-height: 1.8; color: var(--text-muted); }
+.text-page-body p { margin-bottom: 14px; }
+.text-page-body ul { list-style: disc; margin: 0 0 16px; padding-inline-start: 22px; }
+.text-page-body li { margin-bottom: 8px; }
+.text-page-body li::marker { color: var(--accent); }
+.text-page-body b { color: var(--text); }
+.text-page-body a { color: var(--accent-2); }
+.text-page-fill {
+  background: rgba(244,174,92,0.16);
+  color: var(--accent-2);
+  padding: 0 6px;
+  border-radius: 6px;
+}

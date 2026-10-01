@@ -49,7 +49,7 @@ ${form.message ? `הודעה: ${form.message}` : ''}
       <div className="container">
         <div className="join-grid">
           <div className="join-side join-side-image reveal">
-            <img className="join-worker" src="./assets/stone-replacement.JPG" alt="צוות גולשי המתכת" />
+            <img className="join-worker" src="/assets/stone-replacement.webp" alt="צוות גולשי המתכת" width="800" height="1067" loading="lazy" decoding="async" />
           </div>
 
           <div className="join-side join-side-content reveal">

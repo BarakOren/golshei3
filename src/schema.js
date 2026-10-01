@@ -1,4 +1,5 @@
 import { SITE, absUrl } from './site'
+import { localServices } from './data/localServices'
 
 const BUSINESS_ID = absUrl('/#business')
 const cities = () => SITE.areaServed.map((name) => ({ '@type': 'City', name }))
@@ -56,6 +57,55 @@ export function servicesPageSchema(services) {
   }
 }
 
+// /height-work: the city pages, in page order, and the hub's place in the site.
+export function areasPageSchema(cities) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ItemList',
+        name: 'עבודות גובה בישראל',
+        itemListElement: cities.map((c, i) => ({
+          '@type': 'ListItem', position: i + 1, name: `עבודות גובה ב${c.name}`, url: absUrl(`/height-work/${c.id}`),
+        })),
+      },
+      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', '/height-work']]),
+    ],
+  }
+}
+
+// /height-work/<city>: height work offered in one city, and the services it covers.
+export function cityPageSchema(city, content) {
+  const path = `/height-work/${city.id}`
+  const url = absUrl(path)
+  const name = `עבודות גובה ב${city.name}`
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${url}#service`,
+        name,
+        serviceType: 'עבודות גובה וסנפלינג',
+        description: content.seoDescription,
+        url,
+        image: absUrl(`/og/services/${city.photo}.jpg`),
+        areaServed: { '@type': 'City', name: city.name },
+        provider: { '@type': 'HomeAndConstructionBusiness', '@id': BUSINESS_ID, name: SITE.name, url: absUrl('/'), telephone: SITE.phones[0].tel },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name,
+          itemListElement: localServices.map((s) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: s.name, ...(s.to && { url: absUrl(s.to) }) },
+          })),
+        },
+      },
+      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', '/height-work'], [name, path]]),
+    ],
+  }
+}
+
 // /services/<id>: the service, its breadcrumb and, once a page has FAQs, its FAQPage.
 export function servicePageSchema(service) {
   const path = `/services/${service.id}`
@@ -68,7 +118,7 @@ export function servicePageSchema(service) {
       serviceType: service.title,
       description: service.seoDescription,
       url,
-      image: absUrl(service.image.replace(/^\.?\//, '/')),
+      image: absUrl(`/og/services/${service.id}.jpg`),
       areaServed: cities(),
       provider: { '@type': 'HomeAndConstructionBusiness', '@id': BUSINESS_ID, name: SITE.name, url: absUrl('/'), telephone: SITE.phones[0].tel },
     },

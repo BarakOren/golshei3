@@ -39,7 +39,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'ליווי מול הרשויות:', rest: 'אתם לא לבד בתהליך מול העירייה.' },
     ],
-    image: './assets/services/danger-notice.png',
+    image: './assets/services/danger-notice.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L3 7v6c0 5 3.5 9 9 11 5.5-2 9-6 9-11V7l-9-5z"/>
@@ -86,7 +86,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/building-renovation.JPG',
+    image: './assets/services/building-renovation.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -131,7 +131,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/stone-fixing.jpeg',
+    image: './assets/services/stone-fixing.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 21V8l8-5 8 5v13"/>
@@ -179,7 +179,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/stone-replacement.JPG',
+    image: './assets/services/stone-replacement.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -227,7 +227,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/glass-replacement.JPG',
+    image: './assets/services/glass-replacement.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -273,7 +273,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/aluminum-work.jpg',
+    image: './assets/services/aluminum-work.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/>
@@ -319,7 +319,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/leak-detection.jpg',
+    image: './assets/services/leak-detection.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.5s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>
@@ -364,7 +364,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/roof-wall-sealing.jpg',
+    image: './assets/services/roof-wall-sealing.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 12h18M3 6h18M3 18h18"/>
@@ -410,7 +410,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/spot-sealing.JPG',
+    image: './assets/services/spot-sealing.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9"/>
@@ -456,7 +456,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/plaster-paint.png',
+    image: './assets/services/plaster-paint.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 16l4-4 4 4 6-6 4 4"/>
@@ -502,7 +502,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/wall-painting-height.JPG',
+    image: './assets/services/wall-painting-height.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0z"/>
@@ -548,7 +548,7 @@ export const services = [
       { bold: 'שקיפות מלאה', rest: 'במחיר ובלוח הזמנים, מהשיחה הראשונה ועד הסוף.' },
       { bold: 'יחס אישי:', rest: 'מתייחסים לבניין שלכם כאילו הוא שלנו.' },
     ],
-    image: './assets/services/window-cleaning.png',
+    image: './assets/services/window-cleaning.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -598,7 +598,7 @@ export const services = [
       { bold: 'עבודה נקייה ומסודרת', rest: 'ללא הפרעה לדיירים או לפעילות העסק.' },
       { bold: 'גימור מקצועי', rest: 'שמרשים לקוחות ושותפים עוד מהכניסה.' },
     ],
-    image: './assets/services/paint-and-signage.JPG',
+    image: './assets/services/paint-and-signage.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 13.5V20a1 1 0 001 1h18a1 1 0 001-1v-6.5"/>
@@ -648,7 +648,7 @@ export const services = [
       { bold: 'טיפול מקצה לקצה', rest: 'מהאבחון ועד האיטום הסופי.' },
       { bold: 'חיסכון משמעותי', rest: 'בטיפול מוקדם לעומת שיקום מלא בעתיד.' },
     ],
-    image: './assets/services/concrete-restoration.jpeg',
+    image: './assets/services/concrete-restoration.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -698,7 +698,7 @@ export const services = [
       { bold: 'שדרוג משמעותי לערך הנכס', rest: 'חזית חדשה = נכס שנראה ומרגיש חדש.' },
       { bold: 'עבודה כוללת', rest: 'מהתכנון, דרך הכנת הקיר ועד הגימור הסופי.' },
     ],
-    image: './assets/services/hpl-cladding.jpeg',
+    image: './assets/services/hpl-cladding.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="18" rx="1"/>
@@ -748,7 +748,7 @@ export const services = [
       { bold: 'התאמת אריחים', rest: 'לגוון ולמרקם הקיים לתוצאה אחידה.' },
       { bold: 'עבודה בסנפלינג:', rest: 'ללא פיגומים ובלי הפרעה לדיירים.' },
     ],
-    image: './assets/services/tile-replacement.jpeg',
+    image: './assets/services/tile-replacement.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="8" height="8" rx="1"/>
@@ -800,7 +800,7 @@ export const services = [
       { bold: 'עבודה בסנפלינג', rest: 'לכל סוגי הגגות והקירות בגובה.' },
       { bold: 'אחריות על העבודה:', rest: 'אנחנו עומדים מאחורי מה שאנחנו עושים.' },
     ],
-    image: './assets/services/waterproofing.jpeg',
+    image: './assets/services/waterproofing.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2C6 8 4 12 4 15a8 8 0 0016 0c0-3-2-7-8-13z"/>
@@ -849,7 +849,7 @@ export const services = [
       { bold: 'ניקוי מקדים', rest: 'לפני ההתקנה, תנאי הכרחי לאחיזה ועמידות.' },
       { bold: 'הגנה על המבנה', rest: 'מנזקי חומצת הגללים לבטון, מתכת וצבע.' },
     ],
-    image: './assets/services/pigeon-nets.jpeg',
+    image: './assets/services/pigeon-nets.webp',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 3l18 18M3 21L21 3"/>

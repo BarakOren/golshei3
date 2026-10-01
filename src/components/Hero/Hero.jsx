@@ -27,16 +27,19 @@ const pills = ['בטיחות בלתי מתפשרת', 'איכות עליונה', 
 export default function Hero() {
   return (
     <section className="hero">
+      {/* The poster is the first paint above the fold, so fetch it before the video. React moves this link into <head>. */}
+      <link rel="preload" as="image" href="/assets/hero-worker.webp" type="image/webp" fetchPriority="high" />
       <video
         className="hero-media"
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
-        poster="./assets/hero-worker.jpg"
+        preload="metadata"
+        poster="/assets/hero-worker.webp"
+        aria-hidden="true"
       >
-        <source src="./assets/hero-video.mp4" type="video/mp4" />
+        <source src="/assets/hero-video.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" />
 

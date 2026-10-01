@@ -85,6 +85,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
               name="name"
               type="text"
               placeholder="שם מלא"
+              aria-label="שם מלא"
               value={form.name}
               onChange={handleChange}
               required
@@ -94,6 +95,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
               name="phone"
               type="tel"
               placeholder="טלפון"
+              aria-label="טלפון"
               value={form.phone}
               onChange={handleChange}
               required
@@ -103,6 +105,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
               name="email"
               type="email"
               placeholder="אימייל"
+              aria-label="אימייל"
               value={form.email}
               onChange={handleChange}
             />

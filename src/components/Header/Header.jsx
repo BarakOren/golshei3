@@ -7,6 +7,7 @@ import WhiteLogo from "../../../public/assets/surfers-logo-white.png"
 const navLinks = [
   { label: 'ראשי', to: '/' },
   { label: 'שירותים', to: '/services' },
+  { label: 'עבודות גובה בישראל', to: '/height-work' },
   { label: 'למה אנחנו', to: '/', section: 'why' },
   { label: 'ביקורות', to: '/', section: 'reviews' },
   { label: 'גלריה', to: '/', section: 'gallery' },
@@ -31,8 +32,8 @@ export default function Header() {
   return (
     <header className="lead-bar">
       <div className="container lead-bar-inner">
-      <Link to="/" className="lead-logo" aria-label="גולשי המתכת">
-  <img src={WhiteLogo} alt="גולשי המתכת" className="logo-mark" />
+      <Link to="/" className="lead-logo">
+  <img src={WhiteLogo} alt="" className="logo-mark" />
   <div className="lead-logo-text">
     <strong>גולשי המתכת</strong>
     <small>בנייה ויזמות</small>

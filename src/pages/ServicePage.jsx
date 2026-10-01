@@ -23,7 +23,7 @@ export default function ServicePage() {
       title={service.seoTitle}
       description={service.seoDescription}
       path={`/services/${service.id}`}
-      image={service.image.replace(/^\.?\//, '/')}
+      image={`/og/services/${service.id}.jpg`}
       jsonLd={servicePageSchema(service)}
     />
       <ServiceDetail service={service} />

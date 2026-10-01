@@ -31,7 +31,7 @@ write('404.html', page('/404'))
 
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map((r) => `  <url><loc>${SITE_URL}${r}</loc></url>`).join('\n')}
+${routes.map((r) => `  <url><loc>${encodeURI(SITE_URL + r)}</loc></url>`).join('\n')}
 </urlset>
 `)
 console.log(`prerendered ${routes.length} routes + 404.html + sitemap.xml`)

@@ -41,7 +41,7 @@ export default function GallerySlider() {
 
       <div className="slider-wrapper">
         {canScrollRight && (
-          <button className="slider-arrow slider-arrow--right" onClick={() => scroll('right')}>
+          <button type="button" className="slider-arrow slider-arrow--right" aria-label="לתמונות הבאות" onClick={() => scroll('right')}>
             &#8249;
           </button>
         )}
@@ -49,13 +49,13 @@ export default function GallerySlider() {
         <div className="slider-track" ref={scrollRef}>
           {images.map((src, i) => (
             <div className="slider-card" key={i}>
-              <img src={src} alt={`עבודה ${i + 1}`} loading="lazy" />
+              <img src={src} alt={`עבודה ${i + 1}`} loading="lazy" decoding="async" />
             </div>
           ))}
         </div>
 
         {canScrollLeft && (
-          <button className="slider-arrow slider-arrow--left" onClick={() => scroll('left')}>
+          <button type="button" className="slider-arrow slider-arrow--left" aria-label="לתמונות הקודמות" onClick={() => scroll('left')}>
             &#8250;
           </button>
         )}

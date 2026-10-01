@@ -6,6 +6,11 @@ import StickyButtons from './components/StickyButtons/StickyButtons'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import ServicePage from './pages/ServicePage'
+import AreasPage from './pages/AreasPage'
+import CityPage from './pages/CityPage'
+import PrivacyPage from './pages/PrivacyPage'
+import AccessibilityPage from './pages/AccessibilityPage'
+import { LEGAL } from './site'
 import NotFound from './components/NotFound/NotFound'
 import Header from './components/Header/Header'
 
@@ -31,6 +36,10 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:id" element={<ServicePage />} />
+        <Route path="/height-work" element={<AreasPage />} />
+        <Route path="/height-work/:city" element={<CityPage />} />
+        <Route path={LEGAL.privacy} element={<PrivacyPage />} />
+        <Route path={LEGAL.accessibility} element={<AccessibilityPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

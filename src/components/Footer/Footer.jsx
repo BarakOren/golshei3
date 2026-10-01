@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { LEGAL } from '../../site'
 import './Footer.css'
 
 const LogoIcon = () => (
@@ -27,6 +28,7 @@ const ClockIcon = () => (
 // `section` = the id of a homepage section; App.jsx's ScrollManager scrolls to it.
 const navLinks = [
   { to: '/services', label: 'השירותים שלנו' },
+  { to: '/height-work', label: 'עבודות גובה בישראל' },
   { to: '/', section: 'why', label: 'למה לבחור בנו' },
   { to: '/', section: 'reviews', label: 'המלצות לקוחות' },
   { to: '/', section: 'join', label: 'הצטרפו אלינו' },
@@ -53,7 +55,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>ניווט מהיר</h4>
+            <h2>ניווט מהיר</h2>
             <ul>
               {navLinks.map((l) => (
                 <li key={l.label}>
@@ -64,7 +66,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>צרו קשר</h4>
+            <h2>צרו קשר</h2>
             <ul>
               <li className="footer-contact-row">
                 <PhoneIcon />
@@ -88,7 +90,10 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© 2026 גולשי המתכת. כל הזכויות שמורות.</span>
-          <span>עיצוב ובנייה · אתר תדמית מקצועי</span>
+          <nav className="footer-legal" aria-label="מידע משפטי">
+            <Link to={LEGAL.privacy}>מדיניות פרטיות</Link>
+            <Link to={LEGAL.accessibility}>הצהרת נגישות</Link>
+          </nav>
         </div>
       </div>
     </footer>

@@ -13,4 +13,7 @@ export const SITE = {
   areaServed: ['תל אביב', 'רמת גן', 'בני ברק', 'גבעתיים', 'חולון', 'בת ים', 'ראשון לציון', 'פתח תקווה', 'הרצליה'],
 }
 
+// The legal pages use Hebrew URLs.
+export const LEGAL = { privacy: '/מדיניות-פרטיות', accessibility: '/הצהרת-נגישות' }
+
 export const absUrl = (path = '/') => new URL(path, SITE.url).href
