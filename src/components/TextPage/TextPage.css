@@ -30,9 +30,3 @@
 .text-page-body li::marker { color: var(--accent); }
 .text-page-body b { color: var(--text); }
 .text-page-body a { color: var(--accent-2); }
-.text-page-fill {
-  background: rgba(244,174,92,0.16);
-  color: var(--accent-2);
-  padding: 0 6px;
-  border-radius: 6px;
-}

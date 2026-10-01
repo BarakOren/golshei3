@@ -1,10 +1,11 @@
 import { SITE, AREAS, absUrl } from './site'
-import { cityPath, cityTitle } from './data/cityIndex'
+import { cityList, cityPath, cityTitle } from './data/cityIndex'
 import { localServices } from './data/localServices'
 
 const BUSINESS_ID = absUrl('/#business')
 const WEBSITE_ID = absUrl('/#website')
-const cities = () => SITE.areaServed.map((name) => ({ '@type': 'City', name }))
+// Every city with a page; the owners confirmed all 30 (2026-10-01).
+const cities = () => cityList.map((c) => ({ '@type': 'City', name: c.name, sameAs: wikipedia(c) }))
 const breadcrumbs = (trail) => ({
   '@type': 'BreadcrumbList',
   '@id': `${absUrl(trail.at(-1)[1])}#breadcrumb`,

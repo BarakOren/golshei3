@@ -1,7 +1,7 @@
-import TextPage, { Fill } from '../components/TextPage/TextPage'
+import TextPage from '../components/TextPage/TextPage'
 import { LEGAL } from '../site'
 
-// Lists only adjustments the site really has; the contact details are the owners' to fill in.
+// Lists only adjustments the site really has. Contact details from the owners (2026-10-01).
 export default function AccessibilityPage() {
   return (
     <TextPage
@@ -31,16 +31,15 @@ export default function AccessibilityPage() {
       <h2>דרכים נוספות לקבל שירות</h2>
       <p>
         אפשר לפנות אלינו בשיחת טלפון או בהודעת WhatsApp, לפי מה שנוח לכם: <a href="tel:+972542692087">054-269-2087</a> (עופר)
-        או <a href="tel:+972546912113">054-691-2113</a> (להב). <Fill>אם יש משרד שמקבל קהל: הכתובת והסדרי הנגישות בו</Fill>
+        או <a href="tel:+972546912113">054-691-2113</a> (להב). אין לנו משרד שמקבל קהל: העבודה עצמה מתבצעת בבניין שלכם.
       </p>
 
       <h2>פניות בנושא נגישות</h2>
       <p>נתקלתם בבעיית נגישות או שיש לכם הצעה לשיפור? פנו אל האחראי על הנגישות אצלנו:</p>
       <ul>
-        <li><b>שם:</b> <Fill>שם האחראי על הנגישות</Fill></li>
-        <li><b>טלפון:</b> <Fill>מספר טלפון לפניות נגישות</Fill></li>
-        <li><b>דוא"ל:</b> <Fill>כתובת דוא"ל</Fill></li>
-        <li><b>כתובת למשלוח דואר:</b> <Fill>כתובת</Fill></li>
+        <li><b>שם:</b> להב דותן</li>
+        <li><b>טלפון:</b> <a href="tel:+972546912113">054-691-2113</a></li>
+        <li><b>דוא"ל:</b> <a href="mailto:metalsurfer.heights@gmail.com">metalsurfer.heights@gmail.com</a></li>
       </ul>
       <p>כדי שנוכל לטפל בפנייה, כתבו לנו באיזה עמוד נתקלתם בבעיה, מה ניסיתם לעשות ובאיזה מכשיר, דפדפן או טכנולוגיה מסייעת השתמשתם.</p>
     </TextPage>

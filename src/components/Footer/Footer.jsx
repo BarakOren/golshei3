@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { AREAS, LEGAL } from '../../site'
+import { cityList } from '../../data/cityIndex'
 import './Footer.css'
 
 const LogoIcon = () => (
@@ -78,7 +79,7 @@ export default function Footer() {
               </li>
               <li className="footer-contact-row">
                 <PinIcon />
-                <span>אזור שירות: גוש דן והמרכז</span>
+                <Link to={AREAS}>אזור שירות: {cityList.length} ערים במרכז הארץ</Link>
               </li>
               <li className="footer-contact-row">
                 <ClockIcon />

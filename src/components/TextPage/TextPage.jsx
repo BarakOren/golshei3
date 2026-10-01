@@ -20,8 +20,3 @@ export default function TextPage({ title, description, path, updated, modified, 
     </>
   )
 }
-
-// A detail only the owners can supply. It shows as a highlighted [להשלמה: …] until it's filled in.
-export function Fill({ children }) {
-  return <mark className="text-page-fill">[להשלמה: {children}]</mark>
-}

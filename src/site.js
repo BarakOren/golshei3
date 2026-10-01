@@ -10,7 +10,6 @@ export const SITE = {
     { name: 'עופר', tel: '+972542692087' },
     { name: 'להב', tel: '+972546912113' },
   ],
-  areaServed: ['תל אביב', 'רמת גן', 'בני ברק', 'גבעתיים', 'חולון', 'בת ים', 'ראשון לציון', 'פתח תקווה', 'הרצליה'],
 }
 
 // The legal pages and the city hub (with its city pages under it) use Hebrew URLs.

@@ -1,4 +1,4 @@
-import TextPage, { Fill } from '../components/TextPage/TextPage'
+import TextPage from '../components/TextPage/TextPage'
 import { LEGAL } from '../site'
 
 // Written from what the site actually does: both forms only open WhatsApp (nothing is sent to a
@@ -16,9 +16,9 @@ export default function PrivacyPage() {
 
       <h2>מי אחראי על המידע</h2>
       <p>
-        האתר מופעל על ידי גולשי המתכת (<Fill>שם העסק הרשום ומספר ח.פ. או ע.מ.</Fill>). בכל שאלה בנושא פרטיות
+        האתר מופעל על ידי גולשי המתכת (ע.מ. 540339058). בכל שאלה בנושא פרטיות
         אפשר לפנות אלינו בטלפון <a href="tel:+972542692087">054-269-2087</a> (עופר) או <a href="tel:+972546912113">054-691-2113</a> (להב),
-        או בדוא"ל <Fill>כתובת דוא"ל</Fill>.
+        או בדוא"ל <a href="mailto:metalsurfer.heights@gmail.com">metalsurfer.heights@gmail.com</a>.
       </p>
 
       <h2>איזה מידע נאסף</h2>
