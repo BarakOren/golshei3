@@ -1,4 +1,4 @@
-// The city pages under the city hub (AREAS in site.js), in the hub page's order. Each page's text lives in
+// The city pages, in the hub page's order (the hub is AREAS in site.js). Each page's text lives in
 // src/data/cities/<id>.js and is loaded only on that page (see cityContent.js).
 // `photo` is the service in services.jsx whose photo and share image the page uses.
 export const regions = [
@@ -45,3 +45,11 @@ export const cityById = Object.fromEntries(cityList.map((c) => [c.id, c]))
 
 // "in <city>": בבת ים, באשדוד, בתל אביב-יפו
 export const inCity = (city) => `ב${city.name}`
+
+// A city page's name (its H1, card and link text) and its URL, at the site root: /עבודות-גובה-סנפלינג-בת-ים.
+// The hub is its parent in the breadcrumb trail only.
+// `id` stays the internal key (file names, cityIndex lookups).
+export const cityTitle = (city) => `עבודות גובה וסנפלינג ${inCity(city)}`
+export const citySlug = (city) => `עבודות-גובה-סנפלינג-${city.name.replace(/\s+/g, '-')}`
+export const cityBySlug = Object.fromEntries(cityList.map((c) => [citySlug(c), c]))
+export const cityPath = (id) => `/${citySlug(cityById[id])}`

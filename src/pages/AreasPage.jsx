@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { cityList, inCity, regions } from '../data/cityIndex'
+import { cityList, cityPath, cityTitle, regions } from '../data/cityIndex'
 import { hasCityContent } from '../data/cityContent'
 import { localServices } from '../data/localServices'
 import { useReveal } from '../hooks/useReveal'
 import Contact from '../components/Contact/Contact'
 import SEO from '../components/SEO'
 import { areasPageSchema } from '../schema'
-import { AREAS, cityPath } from '../site'
+import { AREAS } from '../site'
 import '../components/Services/Services.css'
 import '../components/ServiceDetail/ServiceDetail.css'
 import './ServicesPage.css'
@@ -111,7 +111,7 @@ export default function AreasPage() {
                   <li key={c.id} hidden={!cityMatches(c, q)}>
                     <Link className="area-card reveal" to={cityPath(c.id)}>
                       <PinIcon />
-                      <span>עבודות גובה {inCity(c)}</span>
+                      <span>{cityTitle(c)}</span>
                       <ArrowIcon />
                     </Link>
                   </li>

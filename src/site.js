@@ -15,7 +15,6 @@ export const SITE = {
 
 // The legal pages and the city hub (with its city pages under it) use Hebrew URLs.
 export const LEGAL = { privacy: '/מדיניות-פרטיות', accessibility: '/הצהרת-נגישות' }
-export const AREAS = '/עבודות-בגובה-איזורי-שירות'
-export const cityPath = (id) => `${AREAS}/${id}`
+export const AREAS = '/עבודות-בגובה-אזורי-שירות'
 
 export const absUrl = (path = '/') => new URL(path, SITE.url).href

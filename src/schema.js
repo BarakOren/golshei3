@@ -1,18 +1,49 @@
-import { SITE, AREAS, absUrl, cityPath } from './site'
+import { SITE, AREAS, absUrl } from './site'
+import { cityPath, cityTitle } from './data/cityIndex'
 import { localServices } from './data/localServices'
 
 const BUSINESS_ID = absUrl('/#business')
+const WEBSITE_ID = absUrl('/#website')
 const cities = () => SITE.areaServed.map((name) => ({ '@type': 'City', name }))
 const breadcrumbs = (trail) => ({
   '@type': 'BreadcrumbList',
+  '@id': `${absUrl(trail.at(-1)[1])}#breadcrumb`,
   itemListElement: trail.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: absUrl(path) })),
 })
+// The page itself, tied to the site and to its breadcrumb trail.
+const webPage = (type, path, name, extra) => ({
+  '@type': type,
+  '@id': `${absUrl(path)}#webpage`,
+  url: absUrl(path),
+  name,
+  inLanguage: 'he',
+  isPartOf: { '@id': WEBSITE_ID },
+  breadcrumb: { '@id': `${absUrl(path)}#breadcrumb` },
+  ...extra,
+})
+// Every city file cites this article as its source (checked when the pages were written).
+const wikipedia = (city) => `https://he.wikipedia.org/wiki/${city.name.replace(/ /g, '_')}`
 
 // Homepage: the business itself. Hours, email, street address and sameAs profile links stay
 // out until the owners confirm them (content workbook, "Owner inputs").
 export function businessSchema(services) {
   return {
     '@context': 'https://schema.org',
+    '@graph': [businessNode(services), {
+      // Google reads the site name shown in results from this, on the homepage only.
+      '@type': 'WebSite',
+      '@id': WEBSITE_ID,
+      url: absUrl('/'),
+      name: SITE.name,
+      alternateName: SITE.alternateName,
+      inLanguage: 'he',
+      publisher: { '@id': BUSINESS_ID },
+    }],
+  }
+}
+
+function businessNode(services) {
+  return {
     '@type': 'HomeAndConstructionBusiness',
     '@id': BUSINESS_ID,
     name: SITE.name,
@@ -59,14 +90,17 @@ export function servicesPageSchema(services) {
 
 // The city hub: the city pages, in page order, and the hub's place in the site.
 export function areasPageSchema(cities) {
+  const url = absUrl(AREAS)
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPage('CollectionPage', AREAS, 'עבודות גובה בישראל', { mainEntity: { '@id': `${url}#cities` } }),
       {
         '@type': 'ItemList',
+        '@id': `${url}#cities`,
         name: 'עבודות גובה בישראל',
         itemListElement: cities.map((c, i) => ({
-          '@type': 'ListItem', position: i + 1, name: `עבודות גובה ב${c.name}`, url: absUrl(cityPath(c.id)),
+          '@type': 'ListItem', position: i + 1, name: cityTitle(c), url: absUrl(cityPath(c.id)),
         })),
       },
       breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', AREAS]]),
@@ -78,10 +112,11 @@ export function areasPageSchema(cities) {
 export function cityPageSchema(city, content) {
   const path = cityPath(city.id)
   const url = absUrl(path)
-  const name = `עבודות גובה ב${city.name}`
+  const name = cityTitle(city)
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPage('WebPage', path, name, { description: content.seoDescription, about: { '@id': `${url}#service` } }),
       {
         '@type': 'Service',
         '@id': `${url}#service`,
@@ -90,7 +125,7 @@ export function cityPageSchema(city, content) {
         description: content.seoDescription,
         url,
         image: absUrl(`/og/services/${city.photo}.jpg`),
-        areaServed: { '@type': 'City', name: city.name },
+        areaServed: { '@type': 'City', name: city.name, sameAs: wikipedia(city) },
         provider: { '@type': 'HomeAndConstructionBusiness', '@id': BUSINESS_ID, name: SITE.name, url: absUrl('/'), telephone: SITE.phones[0].tel },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
@@ -133,4 +168,15 @@ export function servicePageSchema(service) {
     })
   }
   return { '@context': 'https://schema.org', '@graph': graph }
+}
+
+// The privacy policy and the accessibility statement.
+export function textPageSchema({ path, name, description, modified }) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPage('WebPage', path, name, { description, dateModified: modified, publisher: { '@id': BUSINESS_ID } }),
+      breadcrumbs([['דף הבית', '/'], [name, path]]),
+    ],
+  }
 }

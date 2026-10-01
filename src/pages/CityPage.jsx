@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
-import { Link, useParams } from 'react-router-dom'
-import { cityById, inCity } from '../data/cityIndex'
+import { Link } from 'react-router-dom'
+import { cityById, cityPath, cityTitle, inCity } from '../data/cityIndex'
 import { getCityContent, hasCityContent, loadCityContent } from '../data/cityContent'
 import { localServices, localServiceByKey } from '../data/localServices'
 import { services } from '../data/services'
@@ -10,7 +10,7 @@ import Contact from '../components/Contact/Contact'
 import NotFound from '../components/NotFound/NotFound'
 import SEO from '../components/SEO'
 import { cityPageSchema } from '../schema'
-import { AREAS, cityPath } from '../site'
+import { AREAS } from '../site'
 import '../components/ServiceDetail/ServiceDetail.css'
 import './CityPage.css'
 
@@ -124,8 +124,8 @@ function Toc({ sections }) {
   )
 }
 
-export default function CityPage() {
-  const { city: id } = useParams()
+// Each city has its own route (App.jsx), which passes the city's id.
+export default function CityPage({ id }) {
   const city = cityById[id]
   const exists = Boolean(city) && hasCityContent(id)
   const content = exists ? getCityContent(id) : undefined
@@ -166,7 +166,7 @@ export default function CityPage() {
   return (
     <>
       <SEO
-        title={`עבודות גובה וסנפלינג ${inName}`}
+        title={cityTitle(city)}
         description={content?.seoDescription ?? `עבודות גובה ${inName} בסנפלינג, בלי פיגומים. גולשי המתכת.`}
         path={cityPath(id)}
         image={`/og/services/${city.photo}.jpg`}
@@ -182,7 +182,7 @@ export default function CityPage() {
           <div className="sd-grid">
             <div className="sd-body">
               <span className="section-eyebrow">עבודות גובה בישראל</span>
-              <h1 className="sd-title">עבודות גובה {inName}</h1>
+              <h1 className="sd-title">{cityTitle(city)}</h1>
 
               {content ? (
                 <>
@@ -232,7 +232,7 @@ export default function CityPage() {
                   <li key={c.id}>
                     <Link to={cityPath(c.id)}>
                       <PinIcon />
-                      עבודות גובה {inCity(c)}
+                      {cityTitle(c)}
                     </Link>
                   </li>
                 ))}

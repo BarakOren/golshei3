@@ -1,11 +1,13 @@
 import SEO from '../SEO'
+import { textPageSchema } from '../../schema'
 import './TextPage.css'
 
 // Plain text pages (privacy policy, accessibility statement): a title, the last-updated date, then the text.
-export default function TextPage({ title, description, path, updated, children }) {
+// `updated` is the date as shown; `modified` is the same date as YYYY-MM-DD, for the schema.
+export default function TextPage({ title, description, path, updated, modified, children }) {
   return (
     <>
-      <SEO title={title} description={description} path={path} />
+      <SEO title={title} description={description} path={path} jsonLd={textPageSchema({ path, name: title, description, modified })} />
       <section className="block text-page">
         <div className="container">
           <article className="text-page-body">
