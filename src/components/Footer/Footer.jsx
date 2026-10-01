@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { LEGAL } from '../../site'
+import { AREAS, LEGAL } from '../../site'
 import './Footer.css'
 
 const LogoIcon = () => (
@@ -28,7 +28,7 @@ const ClockIcon = () => (
 // `section` = the id of a homepage section; App.jsx's ScrollManager scrolls to it.
 const navLinks = [
   { to: '/services', label: 'השירותים שלנו' },
-  { to: '/height-work', label: 'עבודות גובה בישראל' },
+  { to: AREAS, label: 'עבודות גובה בישראל' },
   { to: '/', section: 'why', label: 'למה לבחור בנו' },
   { to: '/', section: 'reviews', label: 'המלצות לקוחות' },
   { to: '/', section: 'join', label: 'הצטרפו אלינו' },

@@ -1,4 +1,4 @@
-// The city pages under /height-work, in the hub page's order. Each page's text lives in
+// The city pages under the city hub (AREAS in site.js), in the hub page's order. Each page's text lives in
 // src/data/cities/<id>.js and is loaded only on that page (see cityContent.js).
 // `photo` is the service in services.jsx whose photo and share image the page uses.
 export const regions = [

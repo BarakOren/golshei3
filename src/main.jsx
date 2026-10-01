@@ -6,6 +6,7 @@ import './index.css'
 import App from './App.jsx'
 import { initAnalytics } from './analytics'
 import { loadCityContent } from './data/cityContent'
+import { AREAS } from './site'
 
 const app = (
   <StrictMode>
@@ -20,8 +21,11 @@ const app = (
 const root = document.getElementById('root')
 // A city page's text is its own module (data/cityContent.js): load it first so hydration
 // finds the same markup the prerender wrote.
-const city = location.pathname.match(/^\/height-work\/([^/]+)$/)
-const ready = city ? loadCityContent(city[1]) : Promise.resolve()
+// The browser reports the Hebrew path percent-encoded.
+let path = location.pathname
+try { path = decodeURIComponent(path) } catch { /* malformed: leave it */ }
+const cityId = path.startsWith(`${AREAS}/`) ? path.slice(AREAS.length + 1) : ''
+const ready = cityId && !cityId.includes('/') ? loadCityContent(cityId) : Promise.resolve()
 
 // Prerendered pages arrive with markup inside #root: hydrate it. `npm run dev` serves an empty #root: render.
 ready.finally(() => {

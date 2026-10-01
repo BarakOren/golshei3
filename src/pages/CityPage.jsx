@@ -10,6 +10,7 @@ import Contact from '../components/Contact/Contact'
 import NotFound from '../components/NotFound/NotFound'
 import SEO from '../components/SEO'
 import { cityPageSchema } from '../schema'
+import { AREAS, cityPath } from '../site'
 import '../components/ServiceDetail/ServiceDetail.css'
 import './CityPage.css'
 
@@ -167,13 +168,13 @@ export default function CityPage() {
       <SEO
         title={`עבודות גובה וסנפלינג ${inName}`}
         description={content?.seoDescription ?? `עבודות גובה ${inName} בסנפלינג, בלי פיגומים. גולשי המתכת.`}
-        path={`/height-work/${id}`}
+        path={cityPath(id)}
         image={`/og/services/${city.photo}.jpg`}
         jsonLd={content && cityPageSchema(city, content)}
       />
       <section className="block service-detail city-page">
         <div className="container">
-          <Link to="/height-work" className="sd-back">
+          <Link to={AREAS} className="sd-back">
             <ArrowIcon />
             לכל הערים
           </Link>
@@ -205,7 +206,7 @@ export default function CityPage() {
                 </>
               ) : failedId === id ? (
                 <p className="sd-lead city-loading">
-                  לא הצלחנו לטעון את העמוד. <a href={`/height-work/${id}`}>נסו שוב</a>
+                  לא הצלחנו לטעון את העמוד. <a href={cityPath(id)}>נסו שוב</a>
                 </p>
               ) : (
                 <p className="sd-lead city-loading">טוען את העמוד…</p>
@@ -229,7 +230,7 @@ export default function CityPage() {
               <ul>
                 {nearby.map((c) => (
                   <li key={c.id}>
-                    <Link to={`/height-work/${c.id}`}>
+                    <Link to={cityPath(c.id)}>
                       <PinIcon />
                       עבודות גובה {inCity(c)}
                     </Link>

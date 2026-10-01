@@ -7,6 +7,7 @@ import { useReveal } from '../hooks/useReveal'
 import Contact from '../components/Contact/Contact'
 import SEO from '../components/SEO'
 import { areasPageSchema } from '../schema'
+import { AREAS, cityPath } from '../site'
 import '../components/Services/Services.css'
 import '../components/ServiceDetail/ServiceDetail.css'
 import './ServicesPage.css'
@@ -67,7 +68,7 @@ export default function AreasPage() {
       <SEO
         title="עבודות גובה בישראל"
         description={`עבודות גובה וסנפלינג ב-${listed.length} ערים, מתל אביב-יפו ורמת גן ועד אשדוד, נתניה ואריאל: שיקום חזיתות ובטון, חיזוק אריחים והסרת צו מבנה מסוכן.`}
-        path="/height-work"
+        path={AREAS}
         jsonLd={areasPageSchema(listed)}
       />
       <section className="block services services-page areas-page">
@@ -82,7 +83,7 @@ export default function AreasPage() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => { if (e.key === 'Enter' && q && found.length === 1) navigate(`/height-work/${found[0].id}`) }}
+                onKeyDown={(e) => { if (e.key === 'Enter' && q && found.length === 1) navigate(cityPath(found[0].id)) }}
                 placeholder="חפשו את העיר שלכם"
                 aria-label="חיפוש עיר"
                 aria-describedby="areas-search-status"
@@ -108,7 +109,7 @@ export default function AreasPage() {
               <ul className="areas-grid">
                 {g.cities.map((c) => (
                   <li key={c.id} hidden={!cityMatches(c, q)}>
-                    <Link className="area-card reveal" to={`/height-work/${c.id}`}>
+                    <Link className="area-card reveal" to={cityPath(c.id)}>
                       <PinIcon />
                       <span>עבודות גובה {inCity(c)}</span>
                       <ArrowIcon />

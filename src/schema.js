@@ -1,4 +1,4 @@
-import { SITE, absUrl } from './site'
+import { SITE, AREAS, absUrl, cityPath } from './site'
 import { localServices } from './data/localServices'
 
 const BUSINESS_ID = absUrl('/#business')
@@ -57,7 +57,7 @@ export function servicesPageSchema(services) {
   }
 }
 
-// /height-work: the city pages, in page order, and the hub's place in the site.
+// The city hub: the city pages, in page order, and the hub's place in the site.
 export function areasPageSchema(cities) {
   return {
     '@context': 'https://schema.org',
@@ -66,17 +66,17 @@ export function areasPageSchema(cities) {
         '@type': 'ItemList',
         name: 'עבודות גובה בישראל',
         itemListElement: cities.map((c, i) => ({
-          '@type': 'ListItem', position: i + 1, name: `עבודות גובה ב${c.name}`, url: absUrl(`/height-work/${c.id}`),
+          '@type': 'ListItem', position: i + 1, name: `עבודות גובה ב${c.name}`, url: absUrl(cityPath(c.id)),
         })),
       },
-      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', '/height-work']]),
+      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', AREAS]]),
     ],
   }
 }
 
-// /height-work/<city>: height work offered in one city, and the services it covers.
+// A city page: height work offered in one city, and the services it covers.
 export function cityPageSchema(city, content) {
-  const path = `/height-work/${city.id}`
+  const path = cityPath(city.id)
   const url = absUrl(path)
   const name = `עבודות גובה ב${city.name}`
   return {
@@ -101,7 +101,7 @@ export function cityPageSchema(city, content) {
           })),
         },
       },
-      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', '/height-work'], [name, path]]),
+      breadcrumbs([['דף הבית', '/'], ['עבודות גובה בישראל', AREAS], [name, path]]),
     ],
   }
 }
