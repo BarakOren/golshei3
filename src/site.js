@@ -4,8 +4,8 @@ export const SITE = {
   name: 'גולשי המתכת',
   alternateName: 'Metal Surfers',
   defaultTitle: 'עבודות גובה וסנפלינג בגוש דן | גולשי המתכת',
-  ogImage: '/assets/hero-worker.jpg',
-  logo: '/assets/surfers-logo-white.png',
+  ogImage: '/og/og-home.jpg', // 1200×630 share image (WhatsApp, Facebook)
+  logo: '/assets/logo-square.png', // 512×512, readable on white (Google's logo rule)
   phones: [
     { name: 'עופר', tel: '+972542692087' },
     { name: 'להב', tel: '+972546912113' },

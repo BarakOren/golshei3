@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { trackLead } from '../../analytics'
 import './JoinUs.css'
 
 const WHATSAPP_NUMBER = '972542692087'
@@ -34,6 +35,7 @@ ${form.message ? `הודעה: ${form.message}` : ''}
 
 `
 
+    trackLead('join')
     const encoded = encodeURIComponent(text)
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
 

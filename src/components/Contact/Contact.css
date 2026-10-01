@@ -25,6 +25,15 @@
   box-shadow: inset 0 0 220px 40px rgba(96, 46, 6, 0.62);
 }
 .contact .section-eyebrow { color: #0D1730; position: relative; z-index: 1; }
+.contact-lead {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #0D1730;
+}
 .contact h2 {
   color: #FFFFFF;
   text-shadow: 0 2px 16px rgba(0,0,0,0.22);
@@ -189,6 +198,20 @@
   border: 1px solid rgba(232,148,58,0.3);
 }
 .quick-lead-success.show { display: block; }
+
+/* Blue version (404 page): the site's navy palette, with orange as the accent */
+.contact--blue {
+  background:
+    radial-gradient(ellipse 72% 60% at 50% 30%, rgba(255,255,255,0.10), transparent 62%),
+    radial-gradient(ellipse at 18% 0%, rgba(232,148,58,0.10), transparent 55%),
+    linear-gradient(135deg, #35527E 0%, var(--bg-2) 50%, var(--bg-deeper) 100%);
+}
+.contact--blue::after { box-shadow: inset 0 0 220px 40px rgba(5, 10, 26, 0.55); }
+.contact--blue .contact-lead { color: var(--accent-2); }
+.contact--blue .contact-card { background: linear-gradient(135deg, #35527E 0%, #2A4264 100%); }
+.contact--blue .quick-lead-submit {
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 50%, var(--accent-deep) 100%);
+}
 @media (max-width: 900px) {
   .contact-cards { grid-template-columns: 1fr; max-width: 420px; }
   .contact-card {

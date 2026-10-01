@@ -1,20 +1,15 @@
-import { Link } from 'react-router-dom'
-import './NotFound.css'
+import { useReveal } from '../../hooks/useReveal'
+import SEO from '../SEO'
+import Contact from '../Contact/Contact'
 
+// The 404 page: no dead end, just the contact section with its own intro as the page's H1.
 export default function NotFound() {
+  useReveal()
+
   return (
-    <div className="notfound">
-      <div className="notfound-inner">
-        <div className="notfound-code">404</div>
-        <div className="notfound-divider" />
-        <h1 className="notfound-title">הדף לא נמצא</h1>
-        <p className="notfound-desc">
-          נראה שהדף שחיפשתם לא קיים או הוזז למקום אחר.
-        </p>
-        <Link to="/" className="notfound-btn">
-          חזרה לדף הבית
-        </Link>
-      </div>
-    </div>
+    <>
+      <SEO title="הדף לא נמצא" description="הדף שחיפשתם לא קיים או הוזז למקום אחר." noindex />
+      <Contact variant="blue" leadAs="h1" lead="לא מצאת את מה שאתה מחפש?" />
+    </>
   )
 }

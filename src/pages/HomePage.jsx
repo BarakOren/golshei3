@@ -8,6 +8,8 @@ import About from '../components/About/About'
 import Contact from '../components/Contact/Contact'
 import GallerySlider from "../components/SliderGallery/SilderGallery"
 import SEO from '../components/SEO'
+import { services } from '../data/services'
+import { businessSchema } from '../schema'
 
 export default function HomePage() {
   useReveal()
@@ -17,6 +19,7 @@ export default function HomePage() {
     <SEO
   description="גולשי המתכת: מומחים לעבודה בגובה וסנפלינג בגוש דן. שיפוצים, תיקונים, צביעה ואיטום חזיתות בניינים. התקשרו עכשיו!"
   path="/"
+  jsonLd={businessSchema(services)}
 />
       <Hero />
       <Services />

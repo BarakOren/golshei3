@@ -4,6 +4,7 @@ import { serviceGroups } from '../data/serviceGroups'
 import { useReveal } from '../hooks/useReveal'
 import Contact from '../components/Contact/Contact'
 import SEO from '../components/SEO'
+import { servicesPageSchema } from '../schema'
 import '../components/Services/Services.css'
 import './ServicesPage.css'
 
@@ -20,6 +21,7 @@ const groups = [
   ...serviceGroups.map((g) => ({ ...g, items: g.ids.map((id) => byId[id]).filter(Boolean) })),
   ...(others.length ? [{ title: 'שירותים נוספים', intro: '', items: others }] : []),
 ]
+const listed = groups.flatMap((g) => g.items)
 
 export default function ServicesPage() {
   useReveal()
@@ -30,6 +32,7 @@ export default function ServicesPage() {
         title="שירותי עבודות גובה וסנפלינג"
         description="כל השירותים של גולשי המתכת במקום אחד: איטום, שיקום בטון וחזיתות, קיבוע שיש ואריחים, החלפת זכוכית, צביעה ורשתות ליונים. עבודה בסנפלינג, בלי פיגומים."
         path="/services"
+        jsonLd={servicesPageSchema(listed)}
       />
       <section className="block services services-page">
         <div className="container">

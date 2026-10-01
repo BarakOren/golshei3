@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { trackLead } from '../../analytics'
 import './Contact.css'
 
 const WHATSAPP_NUMBER = '972542692087'
@@ -14,7 +15,10 @@ const ArrowIcon = () => (
   </svg>
 )
 
-export default function Contact() {
+// `lead` replaces the small "יצירת קשר" label with a short intro (`leadAs` sets its tag,
+// e.g. "h1" when it is the page's main heading), and `variant="blue"` swaps the orange
+// background for blue. The 404 page uses all three.
+export default function Contact({ lead, leadAs: Lead = 'p', variant }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '' })
   const [success, setSuccess] = useState(false)
 
@@ -34,6 +38,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
 
 `
 
+    trackLead('contact')
     const encoded = encodeURIComponent(text)
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
 
@@ -43,11 +48,13 @@ ${form.email ? `אימייל: ${form.email}` : ''}
   }
 
   return (
-    <section className="block contact" id="contact">
+    <section className={variant === 'blue' ? 'block contact contact--blue' : 'block contact'} id="contact">
       <div className="container">
         <div className="contact-inner">
           <div className="reveal">
-            <span className="section-eyebrow">יצירת קשר</span>
+            {lead
+              ? <Lead className="contact-lead">{lead}</Lead>
+              : <span className="section-eyebrow">יצירת קשר</span>}
             <h2>התקשרו אלינו לייעוץ ללא עלות</h2>
             <p className="contact-sub">קריאה ראשונית ובדיקת מצב: חינם וללא התחייבות.</p>
           </div>
