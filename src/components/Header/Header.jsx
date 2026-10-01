@@ -1,23 +1,33 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 import WhiteLogo from "../../../public/assets/surfers-logo-white.png"
 
+// `section` = the id of a homepage section; App.jsx's ScrollManager scrolls to it.
 const navLinks = [
-  { label: 'ראשי', href: '#hero' },
-  { label: 'שירותים', href: '#services' },
-  { label: 'למה אנחנו', href: '#why' },
-  { label: 'ביקורות', href: '#reviews' },
-  { label: 'גלריה', href: '#gallery' },
-  { label: 'אודות', href: '#about' },
-  { label: 'צור קשר', href: '#contact' },
+  { label: 'ראשי', to: '/' },
+  { label: 'שירותים', to: '/services' },
+  { label: 'למה אנחנו', to: '/', section: 'why' },
+  { label: 'ביקורות', to: '/', section: 'reviews' },
+  { label: 'גלריה', to: '/', section: 'gallery' },
+  { label: 'אודות', to: '/', section: 'about' },
+  { label: 'צור קשר', to: '/', section: 'contact' },
 ]
 
-const scrollTo = (href) => {
-  const el = document.querySelector(href)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
-}
-
 export default function Header() {
+  const { key } = useLocation()
+  // The mobile menu stays open only on the page it was opened on, so any navigation
+  // (a link tap, the logo, the back button) closes it.
+  const [openOn, setOpenOn] = useState(null)
+  const open = openOn === key
+
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (e) => { if (e.key === 'Escape') setOpenOn(null) }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
+
   return (
     <header className="lead-bar">
       <div className="container lead-bar-inner">
@@ -29,15 +39,29 @@ export default function Header() {
   </div>
 </Link>
 
-        <nav className="header-nav">
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-expanded={open}
+          aria-controls="site-nav"
+          aria-label={open ? 'סגירת התפריט' : 'פתיחת התפריט'}
+          onClick={() => setOpenOn(open ? null : key)}
+        >
+          <span className="nav-toggle-bar" />
+          <span className="nav-toggle-bar" />
+          <span className="nav-toggle-bar" />
+        </button>
+
+        <nav id="site-nav" className={open ? 'header-nav is-open' : 'header-nav'} aria-label="ניווט ראשי">
           {navLinks.map(link => (
-            <button
-              key={link.href}
+            <Link
+              key={link.label}
+              to={link.to}
+              state={link.section && { section: link.section }}
               className="header-nav-link"
-              onClick={() => scrollTo(link.href)}
             >
               {link.label}
-            </button>
+            </Link>
           ))}
         </nav>
       </div>

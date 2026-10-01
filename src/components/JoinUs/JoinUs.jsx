@@ -52,7 +52,7 @@ ${form.message ? `הודעה: ${form.message}` : ''}
 
           <div className="join-side join-side-content reveal">
             <h2 className="join-statement">
-              בין אם מדובר בחברת בנייה, ועד בית או לקוח פרטי —
+              בין אם מדובר בחברת בנייה, ועד בית או לקוח פרטי,
               <span className="em">עבורנו כל פרויקט הוא שותפות.</span>
               אצלנו תהנו משקיפות מלאה לכל אורך הדרך, עמידה מדויקת בזמנים ותוצאה סופית ברמה הגבוהה ביותר.
             </h2>
@@ -111,7 +111,7 @@ ${form.message ? `הודעה: ${form.message}` : ''}
 
               {success && (
                 <div className="form-success show">
-                  ✓ תודה! הפרטים נשלחו — נחזור אליכם בהקדם.
+                  ✓ תודה! הפרטים נשלחו. נחזור אליכם בהקדם.
                 </div>
               )}
             </form>

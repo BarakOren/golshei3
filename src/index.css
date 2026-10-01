@@ -109,6 +109,10 @@ section.block {
   padding: 110px 0;
   position: relative;
 }
+/* Section links scroll here: leave room for the sticky header */
+section[id] {
+  scroll-margin-top: 120px;
+}
 .section-head {
   text-align: center;
   margin-bottom: 64px;

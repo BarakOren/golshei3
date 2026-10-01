@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import Hero from '../components/Hero/Hero'
 import Services from '../components/Services/Services'
@@ -13,14 +12,10 @@ import SEO from '../components/SEO'
 export default function HomePage() {
   useReveal()
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
     <>
     <SEO
-  description="גולשי המתכת — מומחים לעבודה בגובה וסנפלינג בגוש דן. שיפוצים, תיקונים, צביעה ואיטום חזיתות בניינים. התקשרו עכשיו!"
+  description="גולשי המתכת: מומחים לעבודה בגובה וסנפלינג בגוש דן. שיפוצים, תיקונים, צביעה ואיטום חזיתות בניינים. התקשרו עכשיו!"
   path="/"
 />
       <Hero />

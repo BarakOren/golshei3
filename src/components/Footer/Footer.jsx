@@ -24,13 +24,14 @@ const ClockIcon = () => (
   </svg>
 )
 
+// `section` = the id of a homepage section; App.jsx's ScrollManager scrolls to it.
 const navLinks = [
-  { href: '#services', label: 'השירותים שלנו' },
-  { href: '#why', label: 'למה לבחור בנו' },
-  { href: '#reviews', label: 'המלצות לקוחות' },
-  { href: '#join', label: 'הצטרפו אלינו' },
-  { href: '#about', label: 'אודות החברה' },
-  { href: '#contact', label: 'יצירת קשר' },
+  { to: '/services', label: 'השירותים שלנו' },
+  { to: '/', section: 'why', label: 'למה לבחור בנו' },
+  { to: '/', section: 'reviews', label: 'המלצות לקוחות' },
+  { to: '/', section: 'join', label: 'הצטרפו אלינו' },
+  { to: '/', section: 'about', label: 'אודות החברה' },
+  { to: '/', section: 'contact', label: 'יצירת קשר' },
 ]
 
 export default function Footer() {
@@ -55,8 +56,8 @@ export default function Footer() {
             <h4>ניווט מהיר</h4>
             <ul>
               {navLinks.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href}>{l.label}</a>
+                <li key={l.label}>
+                  <Link to={l.to} state={l.section && { section: l.section }}>{l.label}</Link>
                 </li>
               ))}
             </ul>

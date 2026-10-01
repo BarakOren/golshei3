@@ -3,8 +3,8 @@ import './WhyUs.css'
 const items = [
   { img: './assets/icon-man.png', alt: 'עובד מוסמך', label: 'צוות מוסמך ומנוסה' },
   { img: './assets/icon-helmet.png', alt: 'קסדת מגן', label: 'ציוד מתקדם ובטיחותי' },
-  { img: './assets/icon-shekel.png', alt: 'שקל — שקיפות מחירים', label: 'מחירים הוגנים ושקיפות מלאה' },
-  { img: './assets/icon-clock.png', alt: 'שעון — זמינות', label: 'זמינות גבוהה בכל גוש דן' },
+  { img: './assets/icon-shekel.png', alt: 'שקל, שקיפות מחירים', label: 'מחירים הוגנים ושקיפות מלאה' },
+  { img: './assets/icon-clock.png', alt: 'שעון, זמינות', label: 'זמינות גבוהה בכל גוש דן' },
 ]
 
 export default function WhyUs() {

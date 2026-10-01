@@ -1,4 +1,8 @@
 .lead-bar {
+  /* Stays at the top while scrolling; below the floating WhatsApp/call buttons (z-index 90+) */
+  position: sticky;
+  top: 0;
+  z-index: 80;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.10), transparent 55%),
     radial-gradient(ellipse at 80% 50%, rgba(0,0,0,0.12), transparent 60%),
@@ -44,6 +48,7 @@
   padding: 4px 0;
   transition: color 0.2s;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .header-nav-link:hover {
@@ -79,13 +84,77 @@
   letter-spacing: 1px;
 }
 
-/* MOBILE — מסתיר לינקים, ממרכז לוגו */
+/* Hamburger button: mobile only */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.2s;
+}
+
+/* The three bars turn into an X while the menu is open */
+.nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE: לוגו והמבורגר בשורה אחת, הקישורים נפתחים מתחת */
 @media (max-width: 768px) {
   .lead-bar-inner {
-    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+  }
+
+  .nav-toggle {
+    display: flex;
   }
 
   .header-nav {
     display: none;
+  }
+
+  .header-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding: 4px 16px;
+    background: var(--bg-1);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .header-nav.is-open .header-nav-link {
+    display: block;
+    padding: 14px 4px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .header-nav.is-open .header-nav-link:last-child {
+    border-bottom: none;
   }
 }

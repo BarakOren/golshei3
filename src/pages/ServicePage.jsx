@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { services } from '../data/services'
 import { useReveal } from '../hooks/useReveal'
@@ -12,10 +11,6 @@ export default function ServicePage() {
 
   useReveal()
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [id])
-
   if (!service) return <Navigate to="/" replace />
 
   return (
@@ -24,6 +19,7 @@ export default function ServicePage() {
       title={service.seoTitle}
       description={service.seoDescription}
       path={`/services/${service.id}`}
+      image={service.image.replace(/^\.?\//, '/')}
     />
       <ServiceDetail service={service} />
       <Contact />

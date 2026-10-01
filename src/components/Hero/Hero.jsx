@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Hero.css'
 
 const CheckIcon = () => (
@@ -57,17 +58,17 @@ export default function Hero() {
           ))}
         </div>
 
-        <p className="hero-sub">גולשי המתכת · בנייה ויזמות — מרימים כל פרויקט לגבהים חדשים</p>
+        <p className="hero-sub">גולשי המתכת · בנייה ויזמות · מרימים כל פרויקט לגבהים חדשים</p>
 
         <div className="hero-cta">
           <a href="tel:+972542692087" className="btn btn-primary">
             <PhoneIcon />
             התקשרו עכשיו
           </a>
-          <a href="#services" className="btn btn-ghost">
+          <Link to="/services" className="btn btn-ghost">
             השירותים שלנו
             <ArrowLIcon />
-          </a>
+          </Link>
         </div>
       </div>
 

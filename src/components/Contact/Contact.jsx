@@ -49,7 +49,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
           <div className="reveal">
             <span className="section-eyebrow">יצירת קשר</span>
             <h2>התקשרו אלינו לייעוץ ללא עלות</h2>
-            <p className="contact-sub">קריאה ראשונית ובדיקת מצב — חינם וללא התחייבות.</p>
+            <p className="contact-sub">קריאה ראשונית ובדיקת מצב: חינם וללא התחייבות.</p>
           </div>
 
           <div className="contact-cards">

@@ -20,7 +20,7 @@ export default function Services() {
 
         <div className="services-grid">
           {services.map((s) => (
-            <Link className="service-card reveal" to={`/service/${s.id}`} key={s.id}>
+            <Link className="service-card reveal" to={`/services/${s.id}`} key={s.id}>
               <div className="service-icon">{s.icon}</div>
               <h3>{s.title}</h3>
               <p>{s.shortDesc}</p>

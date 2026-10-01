@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ServiceDetail.css'
 
 const CheckIcon = () => (
@@ -25,10 +26,10 @@ export default function ServiceDetail({ service }) {
   return (
     <section className="block service-detail">
       <div className="container">
-        <a href={`${import.meta.env.BASE_URL}#services`} className="sd-back">
+        <Link to="/services" className="sd-back">
           <ArrowIcon />
           חזרה לכל השירותים
-        </a>
+        </Link>
 
         <div className="sd-grid">
           <div className="sd-body reveal">
