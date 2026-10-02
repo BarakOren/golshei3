@@ -10,6 +10,9 @@ export const SITE = {
     { name: 'עופר', tel: '+972542692087' },
     { name: 'להב', tel: '+972546912113' },
   ],
+  // Analytics IDs are public (they show in every page's code). src/analytics.js loads them only
+  // on the live domain, so local builds, staging and Vercel previews never send data.
+  analytics: { ga4: 'G-VG2MCXYF7N', mixpanel: '9742f40ef0befb6e977d81a5ee4f8709' },
 }
 
 // The legal pages and the city hub (with its city pages under it) use Hebrew URLs.

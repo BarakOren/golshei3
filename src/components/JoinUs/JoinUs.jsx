@@ -35,7 +35,7 @@ ${form.message ? `הודעה: ${form.message}` : ''}
 
 `
 
-    trackLead('join')
+    trackLead('join', { name: form.name, phone: form.phone })
     const encoded = encodeURIComponent(text)
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
 

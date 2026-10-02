@@ -38,7 +38,7 @@ ${form.email ? `אימייל: ${form.email}` : ''}
 
 `
 
-    trackLead('contact')
+    trackLead('contact', form)
     const encoded = encodeURIComponent(text)
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
 
