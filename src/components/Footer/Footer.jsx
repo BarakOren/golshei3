@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { AREAS, LEGAL } from '../../site'
+import { AREAS, FAQ, LEGAL } from '../../site'
 import { cityList } from '../../data/cityIndex'
 import './Footer.css'
 
@@ -34,6 +34,7 @@ const navLinks = [
   { to: '/', section: 'reviews', label: 'המלצות לקוחות' },
   { to: '/', section: 'join', label: 'הצטרפו אלינו' },
   { to: '/', section: 'about', label: 'אודות החברה' },
+  { to: FAQ, label: 'שאלות נפוצות' },
   { to: '/', section: 'contact', label: 'יצירת קשר' },
 ]
 

@@ -15,8 +15,9 @@ export const SITE = {
   analytics: { ga4: 'G-VG2MCXYF7N', mixpanel: '9742f40ef0befb6e977d81a5ee4f8709' },
 }
 
-// The legal pages and the city hub (with its city pages under it) use Hebrew URLs.
+// The legal pages, the FAQ and the city hub (with its city pages under it) use Hebrew URLs.
 export const LEGAL = { privacy: '/מדיניות-פרטיות', accessibility: '/הצהרת-נגישות' }
 export const AREAS = '/עבודות-בגובה-אזורי-שירות'
+export const FAQ = '/שאלות-נפוצות'
 
 export const absUrl = (path = '/') => new URL(path, SITE.url).href

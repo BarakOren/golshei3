@@ -10,7 +10,8 @@ import AreasPage from './pages/AreasPage'
 import CityPage from './pages/CityPage'
 import PrivacyPage from './pages/PrivacyPage'
 import AccessibilityPage from './pages/AccessibilityPage'
-import { AREAS, LEGAL } from './site'
+import FaqPage from './pages/FaqPage'
+import { AREAS, FAQ, LEGAL } from './site'
 import { cityList, cityPath } from './data/cityIndex'
 import NotFound from './components/NotFound/NotFound'
 import Header from './components/Header/Header'
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/services/:id" element={<ServicePage />} />
         <Route path={AREAS} element={<AreasPage />} />
         {cityList.map((c) => <Route key={c.id} path={cityPath(c.id)} element={<CityPage id={c.id} />} />)}
+        <Route path={FAQ} element={<FaqPage />} />
         <Route path={LEGAL.privacy} element={<PrivacyPage />} />
         <Route path={LEGAL.accessibility} element={<AccessibilityPage />} />
         <Route path="*" element={<NotFound />} />

@@ -1,6 +1,7 @@
 import { SITE, AREAS, absUrl } from './site'
 import { cityList, cityPath, cityTitle } from './data/cityIndex'
 import { localServices } from './data/localServices'
+import { priceItems, servicePrices, PRICES_VALID_THROUGH } from './data/prices'
 
 const BUSINESS_ID = absUrl('/#business')
 const WEBSITE_ID = absUrl('/#website')
@@ -22,6 +23,21 @@ const webPage = (type, path, name, extra) => ({
   breadcrumb: { '@id': `${absUrl(path)}#breadcrumb` },
   ...extra,
 })
+// Price-list lines as offers: a ₪ range per unit, before VAT.
+const offers = (items) => items.map((i) => ({
+  '@type': 'Offer',
+  name: i.name,
+  priceCurrency: 'ILS',
+  priceSpecification: {
+    '@type': 'UnitPriceSpecification',
+    minPrice: i.min,
+    maxPrice: i.max,
+    priceCurrency: 'ILS',
+    unitText: i.unit,
+    valueAddedTaxIncluded: false,
+  },
+  validThrough: PRICES_VALID_THROUGH,
+}))
 // Every city file cites this article as its source (checked when the pages were written).
 const wikipedia = (city) => `https://he.wikipedia.org/wiki/${city.name.replace(/ /g, '_')}`
 
@@ -128,6 +144,7 @@ export function cityPageSchema(city, content) {
         image: absUrl(`/og/services/${city.photo}.jpg`),
         areaServed: { '@type': 'City', name: city.name, sameAs: wikipedia(city) },
         provider: { '@type': 'HomeAndConstructionBusiness', '@id': BUSINESS_ID, name: SITE.name, url: absUrl('/'), telephone: SITE.phones[0].tel },
+        offers: offers(priceItems),
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name,
@@ -142,11 +159,12 @@ export function cityPageSchema(city, content) {
   }
 }
 
-// /services/<id>: the service, its breadcrumb and, once a page has FAQs, its FAQPage.
+// /services/<id>: the page, the service with its price-list offers, its breadcrumb and, once a page has FAQs, its FAQPage.
 export function servicePageSchema(service) {
   const path = `/services/${service.id}`
   const url = absUrl(path)
   const graph = [
+    webPage('WebPage', path, service.title, { description: service.seoDescription, about: { '@id': `${url}#service` } }),
     {
       '@type': 'Service',
       '@id': `${url}#service`,
@@ -157,6 +175,7 @@ export function servicePageSchema(service) {
       image: absUrl(`/og/services/${service.id}.jpg`),
       areaServed: cities(),
       provider: { '@type': 'HomeAndConstructionBusiness', '@id': BUSINESS_ID, name: SITE.name, url: absUrl('/'), telephone: SITE.phones[0].tel },
+      offers: offers(servicePrices(service.id)),
     },
     breadcrumbs([['דף הבית', '/'], ['שירותים', '/services'], [service.title, path]]),
   ]
@@ -169,6 +188,23 @@ export function servicePageSchema(service) {
     })
   }
   return { '@context': 'https://schema.org', '@graph': graph }
+}
+
+// The FAQ page: every question and answer, in page order.
+export function faqPageSchema({ path, name, description, parts }) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPage('FAQPage', path, name, {
+        description,
+        publisher: { '@id': BUSINESS_ID },
+        mainEntity: parts.flatMap((p) => p.items).map(([q, a]) => ({
+          '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      }),
+      breadcrumbs([['דף הבית', '/'], [name, path]]),
+    ],
+  }
 }
 
 // The privacy policy and the accessibility statement.

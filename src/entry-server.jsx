@@ -6,7 +6,7 @@ import App from './App.jsx'
 import { services } from './data/services'
 import { cityList, cityPath } from './data/cityIndex'
 import { primeCityContent } from './data/cityContent'
-import { AREAS, LEGAL } from './site'
+import { AREAS, FAQ, LEGAL } from './site'
 
 // The prerender has every city's text up front; the browser loads one city at a time.
 const cityFiles = import.meta.glob('./data/cities/*.js', { eager: true, import: 'default' })
@@ -19,6 +19,7 @@ export const routes = [
   ...services.map((s) => `/services/${s.id}`),
   AREAS,
   ...cityList.filter((c) => cityContent[c.id]).map((c) => cityPath(c.id)),
+  FAQ,
   LEGAL.privacy,
   LEGAL.accessibility,
 ]

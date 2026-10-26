@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { servicePrices } from '../../data/prices'
+import PriceTable from '../PriceTable/PriceTable'
 import './ServiceDetail.css'
 
 const CheckIcon = () => (
@@ -23,6 +25,7 @@ const BuildingIcon = () => (
 )
 
 export default function ServiceDetail({ service }) {
+  const prices = servicePrices(service.id)
   return (
     <section className="block service-detail">
       <div className="container">
@@ -52,6 +55,14 @@ export default function ServiceDetail({ service }) {
                 </li>
               ))}
             </ol>
+
+            {prices.length > 0 && (
+              <>
+                <h2>מחירון {service.title}</h2>
+                <p>טווחי המחירים של העבודות בשירות הזה, מתוך המחירון שלנו לשנת 2026:</p>
+                <PriceTable items={prices} />
+              </>
+            )}
 
             <h2>למה לבחור בגולשי המתכת</h2>
             <ul className="sd-list">

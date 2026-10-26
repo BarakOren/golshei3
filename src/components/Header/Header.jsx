@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AREAS } from '../../site'
+import { AREAS, FAQ } from '../../site'
 import './Header.css'
 import WhiteLogo from "../../../public/assets/surfers-logo-white.png"
 
@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'ביקורות', to: '/', section: 'reviews' },
   { label: 'גלריה', to: '/', section: 'gallery' },
   { label: 'אודות', to: '/', section: 'about' },
+  { label: 'שאלות נפוצות', to: FAQ },
   { label: 'צור קשר', to: '/', section: 'contact' },
 ]
 

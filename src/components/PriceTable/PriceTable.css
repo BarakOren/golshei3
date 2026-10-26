@@ -1,0 +1,56 @@
+/* The price list table on service and city pages (inside .sd-body). */
+.price-list { margin: 8px 0 4px; }
+.price-table-wrap {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.price-table th,
+.price-table td {
+  padding: 12px 16px;
+  text-align: start;
+  border-bottom: 1px solid var(--border);
+}
+.price-table thead th {
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 60%, var(--accent-deep) 100%);
+  color: #fff;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+}
+.price-table tbody th { font-weight: 600; color: var(--text); }
+.price-table td { color: var(--text-muted); white-space: nowrap; }
+.price-table td:last-child { color: var(--accent-2); font-weight: 700; }
+.price-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+.price-table .price-group th {
+  background: #2A4264;
+  color: var(--text);
+  font-family: 'Heebo', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+}
+.price-table tbody:last-child tr:last-child > * { border-bottom: none; }
+
+.price-notes {
+  list-style: disc;
+  margin: 14px 0 0;
+  padding-inline-start: 20px;
+}
+.price-notes li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+.price-notes li::marker { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .price-table { font-size: 14px; }
+  .price-table th,
+  .price-table td { padding: 10px 10px; }
+}

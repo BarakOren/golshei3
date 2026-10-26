@@ -7,6 +7,7 @@ import { localServices, localServiceByKey } from '../data/localServices'
 import { services } from '../data/services'
 import { useReveal } from '../hooks/useReveal'
 import Contact from '../components/Contact/Contact'
+import PriceTable from '../components/PriceTable/PriceTable'
 import NotFound from '../components/NotFound/NotFound'
 import SEO from '../components/SEO'
 import { cityPageSchema } from '../schema'
@@ -53,6 +54,7 @@ const sectionsFor = (inName) => [
   { id: 'why-pro', title: `למה חשוב לבחור חברה מקצועית לעבודות גובה ${inName}?` },
   { id: 'how-to-choose', title: `איך לבחור חברה מתאימה לעבודות גובה ${inName}?` },
   { id: 'common', title: `אילו עבודות בגובה נפוצות ${inName}?` },
+  { id: 'prices', title: `מחירון עבודות גובה ${inName}` },
   { id: 'dont-delay', title: 'למה חשוב לא לדחות טיפול?' },
 ]
 
@@ -92,6 +94,13 @@ const sectionBody = {
     <>
       <p>{c.common.intro}</p>
       <ul className="sd-list">{c.common.items.map((item) => serviceItem(localServiceByKey[item.service], item.text))}</ul>
+    </>
+  ),
+  // The same price list on every city page.
+  prices: () => (
+    <>
+      <p>טווחי המחירים של העבודות שלנו, מתוך המחירון לשנת 2026:</p>
+      <PriceTable />
     </>
   ),
   'dont-delay': (c) => paragraphs(c.dontDelay),

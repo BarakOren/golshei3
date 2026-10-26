@@ -49,6 +49,7 @@ const AREAS = [
   ['.areas-page', 'areas_hub'],
   ['.services-page', 'services_page'],
   ['.city-page', 'city_page'],
+  ['.faq-page', 'faq_page'],
   ['.service-detail', 'service_page'],
   ['.text-page', 'legal_page'],
 ]

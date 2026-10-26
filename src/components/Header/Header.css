@@ -120,8 +120,8 @@
 .nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* MOBILE: לוגו והמבורגר בשורה אחת, הקישורים נפתחים מתחת */
-/* Eight links don't fit beside the logo below about 1000px, so tablets get the menu button too. */
-@media (max-width: 1024px) {
+/* Nine links don't fit beside the logo below about 1100px, so tablets and small laptops get the menu button too. */
+@media (max-width: 1120px) {
   .lead-bar-inner {
     flex-wrap: wrap;
     padding: 10px 16px;

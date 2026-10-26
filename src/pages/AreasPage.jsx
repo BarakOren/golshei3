@@ -8,6 +8,7 @@ import Contact from '../components/Contact/Contact'
 import SEO from '../components/SEO'
 import { areasPageSchema } from '../schema'
 import { AREAS } from '../site'
+import { toContact } from '../toContact'
 import '../components/Services/Services.css'
 import '../components/ServiceDetail/ServiceDetail.css'
 import './ServicesPage.css'
@@ -40,15 +41,6 @@ const CheckIcon = () => (
 // (קרית = קריית, פתח תקוה = פתח תקווה), and also matches the English URL name (tel aviv).
 const normalize = (s) => s.toLowerCase().replace(/[\s\-־'"׳״]/g, '').replace(/יי/g, 'י').replace(/וו/g, 'ו')
 const cityMatches = (city, q) => !q || normalize(city.name).includes(q) || normalize(city.id).includes(q)
-
-// Scrolls to the contact form at the bottom of the page without adding #contact to the address.
-function toContact(e) {
-  const form = document.getElementById('contact')
-  if (!form) return
-  e.preventDefault()
-  form.scrollIntoView({ behavior: 'smooth' })
-  form.querySelector('input')?.focus({ preventScroll: true })
-}
 
 export default function AreasPage() {
   useReveal()
