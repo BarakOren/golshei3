@@ -148,6 +148,8 @@
 }
 .sd-list li svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
 .sd-list li b { color: var(--text); font-weight: 700; }
+.sd-body .sd-faq-more { margin: 14px 0 0; font-size: 16px; }
+.sd-faq-more a { color: var(--accent-2); font-weight: 700; }
 .sd-inline-cta {
   margin-top: 36px;
   padding: 26px 28px;

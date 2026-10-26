@@ -1,6 +1,7 @@
 import { faqParts } from '../data/faq'
 import { useReveal } from '../hooks/useReveal'
 import Contact from '../components/Contact/Contact'
+import FaqList from '../components/FaqList/FaqList'
 import SEO from '../components/SEO'
 import { faqPageSchema } from '../schema'
 import { FAQ } from '../site'
@@ -11,14 +12,8 @@ import './FaqPage.css'
 const TITLE = 'שאלות נפוצות'
 const DESCRIPTION = 'תשובות לשאלות הנפוצות על שיקום מבנים, עבודות בגובה וסנפלינג: הצעות מחיר, ביטוחים והסמכות, שיטות גישה, ניקוי חלונות, ציורי קיר ועבודה בבתים פרטיים.'
 
-const ChevronIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M6 9l6 6 6-6"/>
-  </svg>
-)
-
-// The FAQ, one heading per part. Each answer sits in a <details>, so it is in the page (and in
-// the FAQPage schema) but collapsed until opened.
+// The FAQ, one heading per part. Each question is anchored (#q<number>) so the schema can give it
+// one @id that the service pages reuse.
 export default function FaqPage() {
   useReveal()
   return (
@@ -37,17 +32,7 @@ export default function FaqPage() {
             {faqParts.map((part) => (
               <section key={part.title} className="faq-part">
                 <h2>{part.title}</h2>
-                <div className="faq-list">
-                  {part.items.map(([q, a]) => (
-                    <details key={q} className="faq-item">
-                      <summary>
-                        <h3>{q}</h3>
-                        <ChevronIcon />
-                      </summary>
-                      <p>{a}</p>
-                    </details>
-                  ))}
-                </div>
+                <FaqList items={part.items} anchored />
               </section>
             ))}
           </div>

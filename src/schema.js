@@ -1,7 +1,8 @@
-import { SITE, AREAS, absUrl } from './site'
+import { SITE, AREAS, FAQ, absUrl } from './site'
 import { cityList, cityPath, cityTitle } from './data/cityIndex'
 import { localServices } from './data/localServices'
 import { priceItems, servicePrices, PRICES_VALID_THROUGH } from './data/prices'
+import { faqNumber, serviceFaqs } from './data/faq'
 
 const BUSINESS_ID = absUrl('/#business')
 const WEBSITE_ID = absUrl('/#website')
@@ -38,6 +39,14 @@ const offers = (items) => items.map((i) => ({
   },
   validThrough: PRICES_VALID_THROUGH,
 }))
+// A question from the owners' FAQ. Its @id is its anchor on the FAQ page, so a question repeated on
+// a service page is the same entity, not a copy.
+const question = (item) => ({
+  '@type': 'Question',
+  '@id': `${absUrl(FAQ)}#q${faqNumber(item)}`,
+  name: item[0],
+  acceptedAnswer: { '@type': 'Answer', text: item[1] },
+})
 // Every city file cites this article as its source (checked when the pages were written).
 const wikipedia = (city) => `https://he.wikipedia.org/wiki/${city.name.replace(/ /g, '_')}`
 
@@ -159,12 +168,17 @@ export function cityPageSchema(city, content) {
   }
 }
 
-// /services/<id>: the page, the service with its price-list offers, its breadcrumb and, once a page has FAQs, its FAQPage.
+// /services/<id>: the page with its FAQs, the service with its price-list offers, and its breadcrumb.
 export function servicePageSchema(service) {
   const path = `/services/${service.id}`
   const url = absUrl(path)
   const graph = [
-    webPage('WebPage', path, service.title, { description: service.seoDescription, about: { '@id': `${url}#service` } }),
+    // FAQPage is a kind of WebPage: the page is about the service, and its main content is the questions.
+    webPage('FAQPage', path, service.title, {
+      description: service.seoDescription,
+      about: { '@id': `${url}#service` },
+      mainEntity: serviceFaqs(service.id).map(question),
+    }),
     {
       '@type': 'Service',
       '@id': `${url}#service`,
@@ -179,14 +193,6 @@ export function servicePageSchema(service) {
     },
     breadcrumbs([['דף הבית', '/'], ['שירותים', '/services'], [service.title, path]]),
   ]
-  if (service.faqs?.length) {
-    graph.push({
-      '@type': 'FAQPage',
-      mainEntity: service.faqs.map((f) => ({
-        '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a },
-      })),
-    })
-  }
   return { '@context': 'https://schema.org', '@graph': graph }
 }
 
@@ -198,9 +204,7 @@ export function faqPageSchema({ path, name, description, parts }) {
       webPage('FAQPage', path, name, {
         description,
         publisher: { '@id': BUSINESS_ID },
-        mainEntity: parts.flatMap((p) => p.items).map(([q, a]) => ({
-          '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
-        })),
+        mainEntity: parts.flatMap((p) => p.items).map(question),
       }),
       breadcrumbs([['דף הבית', '/'], [name, path]]),
     ],

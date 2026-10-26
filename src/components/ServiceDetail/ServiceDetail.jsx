@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { serviceFaqs } from '../../data/faq'
 import { servicePrices } from '../../data/prices'
+import { FAQ } from '../../site'
+import FaqList from '../FaqList/FaqList'
 import PriceTable from '../PriceTable/PriceTable'
 import './ServiceDetail.css'
 
@@ -26,6 +29,7 @@ const BuildingIcon = () => (
 
 export default function ServiceDetail({ service }) {
   const prices = servicePrices(service.id)
+  const faqs = serviceFaqs(service.id)
   return (
     <section className="block service-detail">
       <div className="container">
@@ -73,6 +77,14 @@ export default function ServiceDetail({ service }) {
                 </li>
               ))}
             </ul>
+
+            {faqs.length > 0 && (
+              <>
+                <h2>שאלות נפוצות על {service.title}</h2>
+                <FaqList items={faqs} />
+                <p className="sd-faq-more"><Link to={FAQ}>לכל השאלות הנפוצות</Link></p>
+              </>
+            )}
 
             <div className="sd-inline-cta">
               <div className="t">

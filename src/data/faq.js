@@ -1,5 +1,6 @@
 // The FAQ page (/שאלות-נפוצות), from the owners' document (שאלות נפוצות גולשי המתכת, Oct 2026).
-// Each part is a heading on the page; each item is [question, answer].
+// Each part is a heading on the page; each item is [question, answer]. `serviceFaqs` picks the
+// questions each service page repeats, by their number in the document (1-40).
 export const faqParts = [
   {
     title: "התקשרות, ביטוחים, הסמכות ותשלומים",
@@ -112,3 +113,33 @@ export const faqParts = [
     ],
   },
 ]
+
+const numbered = faqParts.flatMap((p) => p.items) // index 0 = question 1
+
+// Questions by number in the owners' document: 1-10 contracting, 11-19 the work, 20-25 access
+// methods, 26-30 window cleaning, 31-35 murals, 36-40 private houses.
+const serviceFaqNumbers = {
+  'danger-notice': [9, 13, 11, 6, 10, 7],
+  'building-renovation': [1, 15, 16, 17, 19, 37],
+  'stone-fixing': [13, 6, 21, 8],
+  'stone-replacement': [13, 3, 22, 8],
+  'glass-replacement': [21, 22, 17, 7],
+  'aluminum-work': [20, 24, 17, 1],
+  'leak-detection': [13, 15, 3, 8],
+  'roof-wall-sealing': [15, 8, 19, 16],
+  'spot-sealing': [15, 24, 17, 8],
+  'plaster-paint': [8, 18, 19, 16, 21],
+  'wall-painting-height': [31, 32, 33, 34, 35],
+  'window-cleaning': [26, 27, 28, 29, 30],
+  'paint-and-signage': [20, 24, 1, 16],
+  'concrete-restoration': [11, 12, 14, 2, 15, 8],
+  'hpl-cladding': [22, 20, 1, 4],
+  'tile-replacement': [13, 11, 3, 8],
+  waterproofing: [15, 8, 19, 38],
+  'pigeon-nets': [21, 20, 24, 38],
+}
+
+// A question's number in the document; the FAQ page anchors it as #q<number>.
+export const faqNumber = (item) => numbered.indexOf(item) + 1
+
+export const serviceFaqs = (id) => (serviceFaqNumbers[id] ?? []).map((n) => numbered[n - 1])

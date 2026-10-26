@@ -1,0 +1,36 @@
+/* Collapsible questions and answers, on the FAQ page and on service pages. */
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #35527E 0%, #2A4264 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary h3 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+.faq-item summary svg {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  color: var(--accent-2);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary svg { transform: rotate(180deg); }
+.faq-item summary:hover h3 { color: var(--accent-2); }
+.faq-item summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: var(--radius-md); }
+/* .faq-item prefix: outranks .sd-body p */
+.faq-item p { margin: 0; padding: 0 20px 18px; font-size: 16px; }
