@@ -1,5 +1,7 @@
 // The owners' price list (מחירון גולשי המתכת, updated 2026, valid until 1.1.2027). Prices are in ₪ per
 // unit, before VAT. Each service page shows the lines in `servicePrices`; each city page shows them all.
+// Some services' seoDescription in services.jsx quotes a starting price ("החל מ-250 ₪ למ״ר"); update
+// those too when a price changes, and the "2026" in every service and city description each year.
 export const PRICES_VALID_THROUGH = '2027-01-01'
 
 export const priceGroups = [
